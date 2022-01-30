@@ -13,6 +13,7 @@ import Notifications from '../components/Notifications';
 import Modal from "../components/Modal";
 import {ApiContextProvider} from "../context/ApiContext";
 import { Container } from 'semantic-ui-react';
+import MenuBar from '../components/MenuBar'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                           <Modal/>
                           <ApiContextProvider>
                               <div id='page-container'>
+                                  <MenuBar />
                                   <Container>
                                     <Component {...pageProps} />
                                   </Container>
