@@ -4,7 +4,7 @@
 
 import BN from 'bn.js';
 import { useContext, useEffect,useMemo, useState } from 'react';
-import { ApiContext } from 'src/context/ApiContext';
+import { ApiContext } from '../context/ApiContext';
 
 export default function ()  {
 	const [currentBlock, setCurrentBlock] = useState<BN | undefined>(undefined);

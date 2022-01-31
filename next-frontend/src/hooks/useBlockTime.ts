@@ -3,9 +3,9 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { useContext, useMemo } from 'react';
-import { ApiContext } from 'src/context/ApiContext';
-import { chainProperties } from 'src/global/networkConstants';
-import getNetwork from 'src/util/getNetwork';
+import { ApiContext } from '../context/ApiContext';
+import { chainProperties } from '../global/networkConstants';
+import getNetwork from '../util/getNetwork';
 
 const network = getNetwork();
 const DEFAULT_TIME = chainProperties?.[network]?.blockTime;

@@ -160,7 +160,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 			</Responsive>
 			<Responsive minWidth={Responsive.onlyComputer.minWidth}>
 				<Menu className={`${className} ${NETWORK}`} stackable inverted borderless>
-				<Link href="/" passHref><Menu.Item className='logo' id='title'><Image alt='Polkassembly Logo' width={138} height={46} src={logo} /></Menu.Item></Link>
+					<Link href="/" passHref><Menu.Item className='logo' id='title'><Image alt='Polkassembly Logo' width={138} height={46} src={logo} /></Menu.Item></Link>
 					{contentItems.map((item, index) => <Link href={item.to} key={index} passHref><Menu.Item as='a' className='desktop_items' content={item.content} icon={item.icon} /></Link> )}
 					<Menu.Item className='desktop_items'>
 						<Dropdown trigger={<>On-chain</>} icon={caretIcon} item={true}>
