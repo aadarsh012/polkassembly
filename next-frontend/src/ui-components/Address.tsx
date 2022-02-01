@@ -3,7 +3,7 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { DeriveAccountFlags, DeriveAccountInfo, DeriveAccountRegistration } from '@polkadot/api-derive/types';
-// import Identicon from '@polkadot/react-identicon'; TODO: GET THIS WORKING
+// import Identicon from '@polkadot/react-identicon'; TODO: FIX this (identicon package issue ?!)
 import styled from '@xstyled/styled-components';
 import React, { useContext, useEffect, useState } from 'react';
 import { Popup } from 'semantic-ui-react';
@@ -80,13 +80,14 @@ const Address = ({ address, className, displayInline, extensionName, popupConten
 
 	return (
 		<div className={displayInline ? `${className} inline`: className}>
-			Identicon_Placeholder
 			{/* <Identicon
 				className='image identicon'
 				value={address}
 				size={displayInline ? 20 : 32}
 				theme={'polkadot'}
 			/> */}
+
+			Identicon
 			<div className='content'>
 				{displayInline
 					// When inline disregard the extension name.

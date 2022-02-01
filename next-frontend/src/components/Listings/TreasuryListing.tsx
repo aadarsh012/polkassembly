@@ -4,8 +4,8 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import Link from 'next/link';
-import NothingFoundCard from '../../ui-components/NothingFoundCard';
+import { Link } from 'react-router-dom';
+import NothingFoundCard from 'src/ui-components/NothingFoundCard';
 
 import { LatestDemocracyTreasuryProposalPostsQuery } from '../../generated/graphql';
 import GovernanceCard from '../GovernanceCard';
@@ -22,12 +22,12 @@ const TreasuryProposals = ({ className, data }: Props) => {
 	return (
 		<ul className={`${className} proposals__list`}>
 			{data.posts.map(
-			(post) => {
+				(post) => {
 					const onchainId = post.onchain_link?.onchain_treasury_proposal_id;
 
 					return !!post?.author?.username && post.onchain_link &&
 						<li key={post.id} className='proposals__item'>
-							{<Link href={`/treasury/${onchainId}`} passHref>
+							{<Link to={`/treasury/${onchainId}`}>
 								<GovernanceCard
 									address={post.onchain_link.proposer_address}
 									comments={post.comments_aggregate.aggregate?.count

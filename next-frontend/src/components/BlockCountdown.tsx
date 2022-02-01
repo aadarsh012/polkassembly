@@ -6,9 +6,9 @@ import styled from '@xstyled/styled-components';
 import BN from 'bn.js';
 import React from 'react';
 import { Popup } from 'semantic-ui-react';
-import { useBlockTime } from '../hooks';
-import useCurrentBlock from '../hooks/useCurrentBlock';
-import blockToTime from '../util/blockToTime';
+import { useBlockTime } from 'src/hooks';
+import useCurrentBlock from 'src/hooks/useCurrentBlock';
+import blockToTime from 'src/util/blockToTime';
 
 interface Props {
 	className?: string

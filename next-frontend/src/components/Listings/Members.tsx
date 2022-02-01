@@ -4,7 +4,7 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
 import Address from '../../ui-components/Address';
@@ -22,7 +22,7 @@ const Members = ({ className, data, prime }: Props) => {
 			{data.map(
 				(member, i) => (
 					<li key={member} className='proposals__item'>
-						{<Link href={`/profile/${member}?council=true`} passHref>
+						{<Link to={`/profile/${member}?council=true`}>
 							<div className='member_card'>
 								<Segment.Group horizontal>
 									<Segment className='index'>

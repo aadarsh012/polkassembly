@@ -4,9 +4,12 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import Image from 'next/image';
 import { Dropdown, DropdownItemProps, DropdownProps } from 'semantic-ui-react';
+import bifrostLogo from '../assets/bifrost-logo.png';
+import kiltLogo from '../assets/kilt-logo.png';
 import kusamaLogo from '../assets/kusama-logo.gif';
+import moonbeamLogo from '../assets/moonbeam-logo.png';
+import moonriverLogo from '../assets/moonriver-logo.png';
 import polkadotLogo from '../assets/polkadot-logo.jpg';
 import { network } from '../global/networkConstants';
 import getNetwork from '../util/getNetwork';
@@ -16,12 +19,6 @@ const StyledDiv = styled.div`
     display: flex;
     align-items: center;
     text-transform: capitalize;
-		
-		span {
-			margin-right: 0.6rem;
-			display: flex;
-			align-items: center;
-		}
 
     img {
         width: 3rem;
@@ -30,26 +27,56 @@ const StyledDiv = styled.div`
     }
 `;
 
+const getNetworkImage = (showNetwork: string) => {
+	switch (showNetwork) {
+	case network.KUSAMA:
+		return kusamaLogo;
+	case network.MOONBEAM:
+		return moonbeamLogo;
+	case network.MOONRIVER:
+		return moonriverLogo;
+	case network.KILT:
+		return kiltLogo;
+	case network.BIFROST:
+		return bifrostLogo;
+	default:
+		return polkadotLogo;
+	}
+};
+
 const StyledNetworkItem = ({ showNetwork }: {showNetwork: string}) => {
 	return <StyledDiv>
-		<span>
-			<Image
-				src={showNetwork === network.KUSAMA ? kusamaLogo : polkadotLogo}
-				width={24} height={24}
-				alt={showNetwork}/>
-		</span>
+		<img
+			src={getNetworkImage(showNetwork)}
+			alt={showNetwork}/>
 		{showNetwork}
 	</StyledDiv>;
 };
 
 const NetworkOptions: DropdownItemProps[] = [
 	{
+		children: <StyledNetworkItem showNetwork={network.POLKADOT}/>,
+		value: network.POLKADOT
+	},
+	{
 		children: <StyledNetworkItem showNetwork={network.KUSAMA}/>,
 		value: network.KUSAMA
 	},
 	{
-		children: <StyledNetworkItem showNetwork={network.POLKADOT}/>,
-		value: network.POLKADOT
+		children: <StyledNetworkItem showNetwork={network.MOONRIVER}/>,
+		value: network.MOONRIVER
+	},
+	{
+		children: <StyledNetworkItem showNetwork={network.MOONBEAM}/>,
+		value: network.MOONBEAM
+	},
+	{
+		children: <StyledNetworkItem showNetwork={network.KILT}/>,
+		value: network.KILT
+	},
+	{
+		children: <StyledNetworkItem showNetwork={network.BIFROST}/>,
+		value: network.BIFROST
 	}
 ];
 
@@ -63,8 +90,11 @@ const NetworkDropdown = ({ className }: Props) =>  {
 		if (data.value === NETWORK){
 			return null;
 		}
-
-		window.location.href = `https://${data.value}.polkassembly.io`;
+		let domain = 'network';
+		if (data.value === network.POLKADOT || data.value === network.KUSAMA){
+			domain = 'io';
+		}
+		window.location.href = `https://${data.value}.polkassembly.${domain}`;
 		return null;
 	};
 

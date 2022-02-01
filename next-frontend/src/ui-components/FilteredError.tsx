@@ -4,7 +4,7 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import cleanError from '../util/cleanError';
+import cleanError from 'src/util/cleanError';
 
 interface ErrorProps{
 	className?: string,

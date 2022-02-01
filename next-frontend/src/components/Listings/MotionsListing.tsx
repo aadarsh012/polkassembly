@@ -4,8 +4,8 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import Link from 'next/link';
-import NothingFoundCard from '../../ui-components/NothingFoundCard';
+import { Link } from 'react-router-dom';
+import NothingFoundCard from 'src/ui-components/NothingFoundCard';
 
 import { LatestMotionPostsQuery } from '../../generated/graphql';
 import GovernanceCard from '../GovernanceCard';
@@ -37,7 +37,7 @@ const Motions = ({ className, data }: Props) => {
 
 					return !!post?.author?.username && !!post.onchain_link?.onchain_motion.length &&
 						<li key={post.id} className='motions__item'>
-							{<Link href={`/motion/${onchainId}`} passHref>
+							{<Link to={`/motion/${onchainId}`}>
 								<GovernanceCard
 									address={post.onchain_link.proposer_address}
 									comments={post.comments_aggregate.aggregate?.count

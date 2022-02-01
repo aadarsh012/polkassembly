@@ -5,10 +5,10 @@
 import styled from '@xstyled/styled-components';
 import React, { useContext } from 'react';
 import { Icon, Responsive, Segment } from 'semantic-ui-react';
-import BlockCountdown from '../components/BlockCountdown';
-import { UserDetailsContext } from '../context/UserDetailsContext';
-import { noTitle } from '../global/noTitle';
-import useCurrentBlock from '../hooks/useCurrentBlock';
+import BlockCountdown from 'src/components/BlockCountdown';
+import { UserDetailsContext } from 'src/context/UserDetailsContext';
+import { noTitle } from 'src/global/noTitle';
+import useCurrentBlock from 'src/hooks/useCurrentBlock';
 
 import OnchainCreationLabel from '../ui-components/OnchainCreationLabel';
 import StatusTag from '../ui-components/StatusTag';

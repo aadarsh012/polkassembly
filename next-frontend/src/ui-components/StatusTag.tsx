@@ -5,7 +5,7 @@
 import styled from '@xstyled/styled-components';
 import React, { ReactNode } from 'react';
 import { Label, SemanticICONS } from 'semantic-ui-react';
-import { bountyStatus, bountyStatusMap, motionStatus, proposalStatus, referendumStatus, tipStatus, tipStatusMap } from '../global/statuses';
+import { bountyStatus, bountyStatusMap, motionStatus, proposalStatus, referendumStatus, tipStatus, tipStatusMap } from 'src/global/statuses';
 
 interface Props{
 	children?: ReactNode,

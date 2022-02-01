@@ -4,8 +4,8 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import Link from 'next/link';
-import NothingFoundCard from '../../ui-components/NothingFoundCard';
+import { Link } from 'react-router-dom';
+import NothingFoundCard from 'src/ui-components/NothingFoundCard';
 
 import { LatestReferendaPostsQuery } from '../../generated/graphql';
 import GovernanceCard from '../GovernanceCard';
@@ -36,7 +36,7 @@ const Referenda = ({ className, data }: Props) => {
 
 					return !!post?.author?.username && !!post.onchain_link?.onchain_referendum.length &&
 						<li key={post.id} className='referenda__item'>
-							{<Link href={`/referendum/${onchainId}`} passHref>
+							{<Link to={`/referendum/${onchainId}`}>
 								<GovernanceCard
 									address={post.onchain_link.proposer_address}
 									comments={post.comments_aggregate.aggregate?.count

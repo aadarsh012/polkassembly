@@ -4,8 +4,8 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import Link from 'next/link';
-import getDefaultAddressField from '../../util/getDefaultAddressField';
+import { Link } from 'react-router-dom';
+import getDefaultAddressField from 'src/util/getDefaultAddressField';
 
 import { LatestDiscussionPostsQuery } from '../../generated/graphql';
 import DiscussionCard from '../DiscussionCard';
@@ -27,7 +27,7 @@ const Discussions = ({ className, data }: Props) => {
 					(post) => {
 						return !!post?.author?.username &&
 							<li key={post.id} className='discussions__item'>
-								{<Link href={`/post/${post.id}`} passHref>
+								{<Link to={`/post/${post.id}`}>
 									<DiscussionCard
 										defaultAddress={post.author[defaultAddressField]}
 										comments={post.comments_aggregate.aggregate?.count

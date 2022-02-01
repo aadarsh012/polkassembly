@@ -11,12 +11,16 @@ import { decodePostgresArray } from '../util/decodePostgressArray';
 
 const NETWORK = getNetwork();
 
+// TODO: Check localStorage solution
+
 /**
  * Store the JWT token in localstorage
  * @param token the token received from the authentication header
  */
 export const storeLocalStorageToken = (token: string) => {
-	global.localStorage?.setItem('Authorization', token);
+	if(typeof window != 'undefined'){
+		localStorage.setItem('Authorization', token);
+	}
 };
 
 /**
@@ -24,7 +28,10 @@ export const storeLocalStorageToken = (token: string) => {
  * if any. It might be expired
  */
 export const getLocalStorageToken = (): string|null => {
-	return global.localStorage?.getItem('Authorization') || null;
+	if(typeof window != 'undefined'){
+		return localStorage.getItem('Authorization') || null;
+	}
+	return null;
 };
 
 /**
@@ -32,7 +39,9 @@ export const getLocalStorageToken = (): string|null => {
  * if any.
  */
 export const deleteLocalStorageToken = (): void => {
-	return global.localStorage?.removeItem('Authorization');
+	if(typeof window != 'undefined'){
+		return localStorage.removeItem('Authorization');
+	}
 };
 
 /**

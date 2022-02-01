@@ -35,7 +35,7 @@ const Home = ({ className }: Props) => {
 	return (
 		<div className={className}>
 			<Grid stackable reversed='mobile tablet'>
-				<Grid.Column mobile={16} tablet={16} computer={10}>
+				{/* <Grid.Column mobile={16} tablet={16} computer={10}>
 					<NetworkInfo />
 					<h1>Latest activity.</h1>
 					<h3>Latest discussions</h3>
@@ -54,7 +54,7 @@ const Home = ({ className }: Props) => {
 					<BountyContainer className='bountyContainer' />
 					<h3>Latest Technical committee proposals</h3>
 					<TechCommitteeProposals className='techCommitteeProposalContainer' />
-				</Grid.Column>
+				</Grid.Column> */}
 				<Grid.Column mobile={16} tablet={16} computer={6}>
 					{currentUser.id && <div className='mainButtonContainer'>
 						<Button primary className={'newPostButton'} onClick={handleCreatePost}>New post</Button>

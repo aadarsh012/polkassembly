@@ -2,11 +2,14 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
+import 'semantic-ui-css/semantic.min.css';
+// import '../fonts.css'; /* as createGlobalStyle is not importing fonts*/ //TODO: Create Global CSS file
+
 import { createGlobalStyle } from '@xstyled/styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     html {
-        font-size: 62.5%;grey_app_background
+        font-size: 62.5%;
     }
 
     body {

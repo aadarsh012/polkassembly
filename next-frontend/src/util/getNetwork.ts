@@ -9,17 +9,18 @@ import { Network } from '../types';
  *
  */
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function (): Network {
 	const network = process.env.NEXT_PUBLIC_NETWORK;
-
+	
 	if (!network) {
-		throw Error('Please set the REACT_APP_NETWORK environment variable');
+		throw Error('Please set the NEXT_PUBLIC_NETWORK environment variable');
 	}
 
 	const possibleNetworks = Object.values(networkConstants);
 
 	if (!possibleNetworks.includes(network)) {
-		throw Error(`REACT_APP_NETWORK environment variable must be one of ${possibleNetworks} `);
+		throw Error(`NEXT_PUBLIC_NETWORK environment variable must be one of ${possibleNetworks} `);
 	}
 
 	return network;

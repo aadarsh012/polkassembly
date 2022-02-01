@@ -108,7 +108,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 		<>
 			<Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
 				<Menu className={`${className} ${NETWORK}`} inverted widths={2} id='menubar'>
-					<Link href="/" passHref><Menu.Item as='a' className='logo' id='title' onClick={handleClose}><Image alt='Polkassembly Logo' width={138} height={46} src={logo} /></Menu.Item></Link>
+					<Menu.Item className='logo' id='title' onClick={handleClose}><Link href="/" passHref><Image alt='Polkassembly Logo' layout='intrinsic' width={138} height={46} src={logo} /></Link></Menu.Item>
 					<Menu.Menu position="right">
 						<NetworkDropdown />
 						<Menu.Item onClick={handleToggle} id='rightmenu'>
@@ -128,7 +128,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 						visible={menuVisible}
 					>
 						<Accordion>
-							{contentItems.map((item, index) =>  <Link key={index} href={item.to} passHref><Menu.Item onClick={handleClose} content={item.content} icon={item.icon} /></Link>)}
+							{contentItems.map((item, index) =>  <Menu.Item key={index} onClick={handleClose} icon={item.icon}><Link href={item.to}>{item.content}</Link></Menu.Item>)}
 							<Accordion.Title
 								active={accordionActive}
 								index={0}
@@ -137,16 +137,16 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 								<Menu.Item as='a' content='On-chain' icon='chain' to='#' />
 							</Accordion.Title>
 							<Accordion.Content active={accordionActive}>
-								{onchainItems.map((item, index) => <Link key={index} href={item.to} passHref><Menu.Item as='a' onClick={handleClose} content={item.content} /></Link> )}
+								{onchainItems.map((item, index) => <Menu.Item key={index} onClick={handleClose}><Link href={item.to}>{item.content}</Link></Menu.Item> )}
 							</Accordion.Content>
 							{username
 								?
 								<>
-									{loggedInItems.map((item, index) => <Link key={index} href={item.to} passHref><Menu.Item as='a' content={item.content} icon={item.icon} /></Link>)}
+									{loggedInItems.map((item, index) => <Menu.Item key={index} icon={item.icon}><Link href={item.to}>{item.content}</Link></Menu.Item>)}
 								</>
 								:
 								<>
-									{loggedOutItems.map((item, index) => <Link key={index} href={item.to} passHref><Menu.Item as='a' onClick={handleClose} content={item.content} icon={item.icon} /></Link>)}
+									{loggedOutItems.map((item, index) => <Menu.Item key={index} onClick={handleClose} icon={item.icon}><Link  href={item.to}>{item.content}</Link></Menu.Item>)}
 								</>
 							}
 							{latestBlockNumber ? <Menu.Item>
@@ -158,14 +158,15 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 					<SidebarPusher />
 				</Sidebar.Pushable>
 			</Responsive>
+
 			<Responsive minWidth={Responsive.onlyComputer.minWidth}>
 				<Menu className={`${className} ${NETWORK}`} stackable inverted borderless>
-					<Link href="/" passHref><Menu.Item className='logo' id='title'><Image alt='Polkassembly Logo' width={138} height={46} src={logo} /></Menu.Item></Link>
-					{contentItems.map((item, index) => <Link href={item.to} key={index} passHref><Menu.Item as='a' className='desktop_items' content={item.content} icon={item.icon} /></Link> )}
+					<Menu.Item className='logo' id='title'><Link href="/" passHref><Image alt='Polkassembly Logo' layout='intrinsic' width={138} height={46} src={logo} /></Link></Menu.Item>
+					{contentItems.map((item, index) => <Menu.Item key={index} className='desktop_items'><Link href={item.to} passHref>{item.content}</Link></Menu.Item>)}
 					<Menu.Item className='desktop_items'>
 						<Dropdown trigger={<>On-chain</>} icon={caretIcon} item={true}>
 							<Dropdown.Menu>
-								{onchainItems.map((item, index) => <Link href={item.to} key={index} passHref><Menu.Item as='a' content={item.content}/></Link>)}
+								{onchainItems.map((item, index) =><Menu.Item key={index}><Link href={item.to}>{item.content}</Link></Menu.Item>)}
 							</Dropdown.Menu>
 						</Dropdown>
 					</Menu.Item>
@@ -179,12 +180,12 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 							? <>
 								<Dropdown trigger={userMenu} icon={caretIcon} item={true}>
 									<Dropdown.Menu>
-										{loggedInItems.map((item, index) => <Link key={index} href={item.to} passHref><Menu.Item as='a' content={item.content} icon={item.icon}/></Link>)}
+										{loggedInItems.map((item, index) => <Menu.Item key={index} icon={item.icon}><Link href={item.to}>{item.content}</Link></Menu.Item>)}
 									</Dropdown.Menu>
 								</Dropdown>
 							</>
 							: <>
-								{loggedOutItems.map((item, index) => <Link key={index} href={item.to} passHref><Menu.Item as='a' className='user_items' content={item.content} icon={item.icon} /></Link>)}
+								{loggedOutItems.map((item, index) => <Menu.Item  key={index} className='user_items'><Link href={item.to}>{item.content}</Link></Menu.Item>)}
 							</>
 						}
 					</Menu.Menu>
@@ -195,6 +196,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 };
 
 export default styled(MenuBar)`
+
 	&.polkadot {
 		border-top: solid !important;
 		border-top-color: pink_primary !important;
@@ -206,11 +208,11 @@ export default styled(MenuBar)`
 		border-radius: 0rem;
 		letter-spacing: 0.2px;
 
-		& a.active {
+		&a.active {
 			outline: none;
 			background-color: black_full !important;
 		}
-		.item {
+		.item{
 			color: grey_secondary;
 			font-weight: 500;
 			&:hover {

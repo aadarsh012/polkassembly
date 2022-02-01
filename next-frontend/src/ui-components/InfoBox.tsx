@@ -3,7 +3,7 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import styled from '@xstyled/styled-components';
-import React, { ReactNode,useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 
 interface Props{
@@ -16,8 +16,7 @@ interface Props{
 }
 
 const InfoBox = ({ children, className, content, dismissable, name, title }: Props) => {
-	// Note local storage is only available on client, so useEffect fetch;
-	
+	// Note: local storage is only available on client, so useEffect fetch;
 	const [infoBoxVisible, setInfoBoxVisible] = useState<string | null>(null);
 	const [infoVisible, setInfoVisible] = useState(infoBoxVisible === 'true');
 	
@@ -32,8 +31,6 @@ const InfoBox = ({ children, className, content, dismissable, name, title }: Pro
 		}
 	
 	}, []);
-	
-
 
 	const handleClose = () => {
 		localStorage.setItem(localStorageName, 'false');
