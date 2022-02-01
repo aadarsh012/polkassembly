@@ -3,7 +3,7 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import styled from '@xstyled/styled-components';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode,useEffect, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 
 interface Props{
@@ -16,19 +16,21 @@ interface Props{
 }
 
 const InfoBox = ({ children, className, content, dismissable, name, title }: Props) => {
+	// Note local storage is only available on client, so useEffect fetch;
+	
+	const [infoBoxVisible, setInfoBoxVisible] = useState<string | null>(null);
+	const [infoVisible, setInfoVisible] = useState(infoBoxVisible === 'true');
+	
 	const localStorageName = name + 'Visible';
-	const [startRender, setStartRender] = useState(false);
-	const [infoVisible, setInfoVisible] = useState(false);
 
-	useEffect(()=>{
-		const infoBoxVisible = localStorage.getItem(localStorageName);
+	useEffect(() => {
+		setInfoBoxVisible(localStorage.getItem(localStorageName));
 
 		if (infoBoxVisible === null) {
 			localStorage.setItem(localStorageName, 'true');
 			setInfoVisible(true);
 		}
-
-		setStartRender(true);
+	
 	}, []);
 	
 
@@ -39,7 +41,6 @@ const InfoBox = ({ children, className, content, dismissable, name, title }: Pro
 	};
 
 	return (
-		startRender?
 		<>
 			{infoVisible &&
 			<div className={className}>
@@ -53,7 +54,7 @@ const InfoBox = ({ children, className, content, dismissable, name, title }: Pro
 				<p>{content}</p>
 				{children}
 			</div>}
-		</> : null
+		</>
 	);
 };
 
