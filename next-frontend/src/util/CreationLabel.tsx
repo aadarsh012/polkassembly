@@ -6,8 +6,8 @@ import styled from '@xstyled/styled-components';
 import * as moment from 'moment';
 import React, { ReactNode } from 'react';
 
-import InlineTag from './InlineTag';
-import NameLabel from './NameLabel';
+import InlineTag from '../ui-components/InlineTag';
+import NameLabel from '../ui-components/NameLabel';
 
 interface Props{
 	className?: string

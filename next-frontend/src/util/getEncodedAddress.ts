@@ -3,8 +3,8 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { encodeAddress } from '@polkadot/util-crypto';
-import { chainProperties } from 'src/global/networkConstants';
-import getNetwork from 'src/util/getNetwork';
+import { chainProperties } from '../global/networkConstants';
+import getNetwork from '../util/getNetwork';
 
 /**
  * Return an address encoded for the current network
