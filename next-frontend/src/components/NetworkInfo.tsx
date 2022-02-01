@@ -5,9 +5,9 @@
 import styled from '@xstyled/styled-components';
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-import { chainLinks } from 'src/global/networkConstants';
-import InfoBox from 'src/ui-components/InfoBox';
-import getNetwork from 'src/util/getNetwork';
+import { chainLinks } from '../global/networkConstants';
+import InfoBox from '../ui-components/InfoBox';
+import getNetwork from '../util/getNetwork';
 
 interface Props {
 	className?: string
