@@ -6,7 +6,7 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import styled from '@xstyled/styled-components';
 import React from 'react';
 import { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import { Form } from 'src/ui-components/Form';
+import { Form } from '../ui-components/Form';
 
 import Balance from '../components/Balance';
 import AddressDropdown from './AddressDropdown';

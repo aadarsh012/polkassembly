@@ -6,7 +6,7 @@ import styled from '@xstyled/styled-components';
 import BN from 'bn.js';
 import React from 'react';
 import { Progress } from 'semantic-ui-react';
-import formatBnBalance from 'src/util/formatBnBalance';
+import formatBnBalance from '../util/formatBnBalance';
 
 interface Props {
 	ayeVotes: BN,

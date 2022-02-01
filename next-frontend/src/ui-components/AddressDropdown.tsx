@@ -6,7 +6,7 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import styled from '@xstyled/styled-components';
 import React, { useState } from 'react';
 import { Dropdown, DropdownItemProps, DropdownProps } from 'semantic-ui-react';
-import Address from 'src/ui-components/Address';
+import Address from '../ui-components/Address';
 
 interface Props{
 	accounts: InjectedAccountWithMeta[]
