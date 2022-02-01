@@ -108,7 +108,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 		<>
 			<Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
 				<Menu className={`${className} ${NETWORK}`} inverted widths={2} id='menubar'>
-					<Menu.Item className='logo' id='title' onClick={handleClose}><Link href="/" passHref><Image alt='Polkassembly Logo' layout='intrinsic' width={138} height={46} src={logo} /></Link></Menu.Item>
+					<Menu.Item className='logo' id='title' onClick={handleClose}><Link href="/" passHref><Image alt='Polkassembly Logo' layout='intrinsic' width={100} height={33.33} src={logo} /></Link></Menu.Item>
 					<Menu.Menu position="right">
 						<NetworkDropdown />
 						<Menu.Item onClick={handleToggle} id='rightmenu'>

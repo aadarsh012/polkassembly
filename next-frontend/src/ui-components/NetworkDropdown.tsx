@@ -13,6 +13,8 @@ import moonriverLogo from '../assets/moonriver-logo.png';
 import polkadotLogo from '../assets/polkadot-logo.jpg';
 import { network } from '../global/networkConstants';
 import getNetwork from '../util/getNetwork';
+import Image from 'next/image';
+
 
 const NETWORK = getNetwork();
 const StyledDiv = styled.div`
@@ -20,7 +22,7 @@ const StyledDiv = styled.div`
     align-items: center;
     text-transform: capitalize;
 
-    img {
+    span {
         width: 3rem;
         border-radius: 50%;
         margin-right: 0.5rem;
@@ -46,9 +48,14 @@ const getNetworkImage = (showNetwork: string) => {
 
 const StyledNetworkItem = ({ showNetwork }: {showNetwork: string}) => {
 	return <StyledDiv>
-		<img
-			src={getNetworkImage(showNetwork)}
-			alt={showNetwork}/>
+		<span>
+			<Image
+				src={getNetworkImage(showNetwork)}
+				layout='intrinsic'
+				width={28}
+				height={28}
+				alt={showNetwork}/>
+		</span>
 		{showNetwork}
 	</StyledDiv>;
 };
