@@ -5,11 +5,11 @@
 import styled from '@xstyled/styled-components';
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import { chainProperties } from 'src/global/networkConstants';
-import { LoadingStatusType } from 'src/types';
-import Card from 'src/ui-components/Card';
-import Loader from 'src/ui-components/Loader';
-import getNetwork from 'src/util/getNetwork';
+import { chainProperties } from '../../../../global/networkConstants';
+import { LoadingStatusType } from '../../../../types';
+import Card from '../../../../ui-components/Card';
+import Loader from '../../../../ui-components/Loader';
+import getNetwork from '../../../../util/getNetwork';
 
 interface Props {
 	className?: string

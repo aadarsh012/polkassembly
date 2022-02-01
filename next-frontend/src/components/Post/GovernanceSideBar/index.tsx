@@ -7,12 +7,12 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import styled from '@xstyled/styled-components';
 import React, { useContext, useState } from 'react';
 import { DropdownProps } from 'semantic-ui-react';
-import { ApiContext } from 'src/context/ApiContext';
-import { OnchainLinkBountyFragment, OnchainLinkMotionFragment, OnchainLinkProposalFragment, OnchainLinkReferendumFragment, OnchainLinkTechCommitteeProposalFragment, OnchainLinkTipFragment, OnchainLinkTreasuryProposalFragment } from 'src/generated/graphql';
-import { APPNAME } from 'src/global/appName';
-import { motionStatus, proposalStatus, referendumStatus, tipStatus } from 'src/global/statuses';
-import { VoteThreshold } from 'src/types';
-import { Form } from 'src/ui-components/Form';
+import { ApiContext } from '../../../context/ApiContext';
+import { OnchainLinkBountyFragment, OnchainLinkMotionFragment, OnchainLinkProposalFragment, OnchainLinkReferendumFragment, OnchainLinkTechCommitteeProposalFragment, OnchainLinkTipFragment, OnchainLinkTreasuryProposalFragment } from '../../../generated/graphql';
+import { APPNAME } from '../../../global/appName';
+import { motionStatus, proposalStatus, referendumStatus, tipStatus } from '../../../global/statuses';
+import { VoteThreshold } from '../../../types';
+import { Form } from '../../../ui-components/Form';
 
 import ExtensionNotDetected from '../../ExtensionNotDetected';
 import MotionVoteInfo from './Motions/MotionVoteInfo';

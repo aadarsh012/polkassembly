@@ -5,12 +5,12 @@
 import styled from '@xstyled/styled-components';
 import React, { useContext } from 'react';
 import { FieldError,useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Divider } from 'semantic-ui-react';
 
 import { UserDetailsContext } from '../../context/UserDetailsContext';
 import { useLoginMutation } from '../../generated/graphql';
-import { useRouter } from '../../hooks';
+import { useRouter} from 'next/router';
 import { handleTokenChange } from '../../services/auth.service';
 import Button from '../../ui-components/Button';
 import FilteredError from '../../ui-components/FilteredError';
@@ -25,7 +25,7 @@ interface Props {
 
 const LoginForm = ({ className, toggleWeb2Login }:Props): JSX.Element => {
 	const currentUser = useContext(UserDetailsContext);
-	const { history } = useRouter();
+	const router = useRouter();
 	const [loginMutation, { loading, error }] = useLoginMutation();
 	const { errors, handleSubmit, register } = useForm();
 
@@ -41,7 +41,7 @@ const LoginForm = ({ className, toggleWeb2Login }:Props): JSX.Element => {
 			}).then(({ data }) => {
 				if (data && data.login && data.login.token) {
 					handleTokenChange(data.login.token, currentUser);
-					history.goBack();
+					router.back();
 				}
 			}).catch((e) => {
 				console.error('Login error', e);
@@ -84,7 +84,7 @@ const LoginForm = ({ className, toggleWeb2Login }:Props): JSX.Element => {
 					{errors.password && <span className={'errorText'}>{messages.VALIDATION_PASSWORD_ERROR}</span>}
 
 					<div className='text-muted'>
-						<Link to='/request-reset-password'>Forgot your password or username?</Link>
+						<Link href='/request-reset-password'>Forgot your password or username?</Link>
 					</div>
 				</Form.Field>
 			</Form.Group>

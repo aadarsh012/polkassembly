@@ -5,8 +5,8 @@
 import styled from '@xstyled/styled-components';
 import React, { useContext, useEffect, useState } from 'react';
 import { Grid, Icon } from 'semantic-ui-react';
-import { ApiContext } from 'src/context/ApiContext';
-import HelperTooltip from 'src/ui-components/HelperTooltip';
+import { ApiContext } from '../../../../context/ApiContext';
+import HelperTooltip from '../../../../ui-components/HelperTooltip';
 
 import { CouncilVote, Vote } from '../../../../types';
 import Address from '../../../../ui-components/Address';

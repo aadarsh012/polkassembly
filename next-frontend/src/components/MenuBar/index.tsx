@@ -6,7 +6,7 @@ import styled from '@xstyled/styled-components';
 import React from 'react';
 import { ReactNode, useContext, useState } from 'react';
 import { MdClose } from 'react-icons/md';
-import { useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Accordion, Dropdown, Icon, Menu, Responsive, Sidebar, SidebarPusher } from 'semantic-ui-react';

@@ -4,7 +4,7 @@
 
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-
+// TODO: Remove
 import { MetaContext } from '../context/MetaContext';
 
 const Head = () => {

@@ -5,7 +5,7 @@
 import styled from '@xstyled/styled-components';
 import { ApolloQueryResult } from 'apollo-client';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Grid, Icon, Responsive } from 'semantic-ui-react';
 
 import { MetaContext } from '../../context/MetaContext';
@@ -272,10 +272,12 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 		<Grid className={className}>
 			<Grid.Column mobile={16} tablet={16} computer={10} largeScreen={10}>
 				{redirection.link &&
-					<Link className='redirection' to={redirection.link}>
-						<Card className='redirectionCard'>
-							<Icon name='forward'/> This proposal has become <span className='redirectionText'>{redirection.text}</span>
-						</Card>
+					<Link href={redirection.link} passHref>
+						<a className='redirection'>
+							<Card className='redirectionCard'>
+								<Icon name='forward'/> This proposal has become <span className='redirectionText'>{redirection.text}</span>
+							</Card>
+						</a>
 					</Link>
 				}
 				<div className='post_content'>
@@ -403,7 +405,7 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 				}
 				{redirection.link &&
 					<Card className='timelineCard'>
-						<Icon name='forward'/> Became <Link className='redirection' to={redirection.link}><span className='redirectionText'>{redirection.text}</span></Link>
+						<Icon name='forward'/> Became <Link href={redirection.link} passHref><a className='redirection'> <span className='redirectionText'>{redirection.text}</span></a></Link>
 					</Card>
 				}
 				<Responsive maxWidth={Responsive.onlyTablet.maxWidth}>

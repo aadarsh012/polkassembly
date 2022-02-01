@@ -3,19 +3,19 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { DeriveReferendumVote } from '@polkadot/api-derive/types';
-import { getFailingThreshold, getPassingThreshold } from '@polkassembly/util';
+import {getFailingThreshold, getPassingThreshold} from '@polkassembly/util';
 import styled from '@xstyled/styled-components';
 import BN from 'bn.js';
 import React, { useContext, useEffect, useMemo,useState } from 'react';
 import { Grid } from 'semantic-ui-react';
-import { ApiContext } from 'src/context/ApiContext';
-import { LoadingStatusType, VoteThreshold } from 'src/types';
-import Card from 'src/ui-components/Card';
-import HelperTooltip from 'src/ui-components/HelperTooltip';
-import Loader from 'src/ui-components/Loader';
-import PassingInfo from 'src/ui-components/PassingInfo';
-import VoteProgress from 'src/ui-components/VoteProgress';
-import formatBnBalance from 'src/util/formatBnBalance';
+import { ApiContext } from '../../../../context/ApiContext';
+import { LoadingStatusType, VoteThreshold } from '../../../../types';
+import Card from '../../../../ui-components/Card';
+import HelperTooltip from '../../../../ui-components/HelperTooltip';
+import Loader from '../../../../ui-components/Loader';
+import PassingInfo from '../../../../ui-components/PassingInfo';
+import VoteProgress from '../../../../ui-components/VoteProgress';
+import formatBnBalance from '../../../../util/formatBnBalance';
 
 interface Props {
 	className?: string

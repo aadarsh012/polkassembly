@@ -50,7 +50,7 @@ const OptionPoll = ({ className, optionPollId, question, options, endAt }: Props
 				}
 			});
 		} catch (error) {
-			setErr(error);
+			setErr(error); //TODO: FIX
 		}
 
 		try {

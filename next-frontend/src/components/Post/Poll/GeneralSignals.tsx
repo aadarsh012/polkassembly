@@ -5,11 +5,11 @@
 import styled from '@xstyled/styled-components';
 import { ApolloQueryResult } from 'apollo-client';
 import React, { useCallback, useContext, useState } from 'react';
-import BlockCountdown from 'src/components/BlockCountdown';
-import useCurrentBlock from 'src/hooks/useCurrentBlock';
-import usePollEndBlock from 'src/hooks/usePollEndBlock';
-import ButtonLink from 'src/ui-components/ButtonLink';
-import HelperTooltip from 'src/ui-components/HelperTooltip';
+import BlockCountdown from '../../../components/BlockCountdown';
+import useCurrentBlock from '../../../hooks/useCurrentBlock';
+import usePollEndBlock from '../../../hooks/usePollEndBlock';
+import ButtonLink from '../../../ui-components/ButtonLink';
+import HelperTooltip from '../../../ui-components/HelperTooltip';
 
 import { UserDetailsContext } from '../../../context/UserDetailsContext';
 import { PollQuery, PollQueryVariables, PollVotesQuery, PollVotesQueryVariables, useAddPollVoteMutation, useDeleteVoteMutation, useEditPollMutation } from '../../../generated/graphql';
@@ -58,7 +58,7 @@ const CouncilSignals = ({ ayes, className, endBlock, nays, ownVote, pollId, canE
 
 			votesRefetch();
 		} catch (error) {
-			setErr(error);
+			setErr(error); //TODO: FIX
 		}
 	}, [id, deleteVoteMutation, pollId, votesRefetch]);
 

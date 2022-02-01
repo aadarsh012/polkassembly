@@ -4,7 +4,7 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import getNetwork from 'src/util/getNetwork';
+import getNetwork from '../util/getNetwork';
 
 interface Props {
 	className?: string

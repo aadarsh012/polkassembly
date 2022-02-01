@@ -5,8 +5,8 @@
 // import { DeriveBalancesAccount } from '@polkadot/api-derive/types';
 import styled from '@xstyled/styled-components';
 import React, { useContext, useEffect, useState } from 'react';
-import { ApiContext } from 'src/context/ApiContext';
-import formatBnBalance from 'src/util/formatBnBalance';
+import { ApiContext } from '../context/ApiContext';
+import formatBnBalance from '../util/formatBnBalance';
 
 interface Props {
 	address: string

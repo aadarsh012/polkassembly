@@ -3,7 +3,7 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import * as React from 'react';
-import Card from 'src/ui-components/Card';
+import Card from '../ui-components/Card';
 
 import getExtensionUrl from '../util/getExtensionUrl';
 

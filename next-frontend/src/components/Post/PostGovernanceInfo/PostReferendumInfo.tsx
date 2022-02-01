@@ -5,8 +5,8 @@
 import * as moment from 'moment';
 import * as React from 'react';
 import { Grid } from 'semantic-ui-react';
-import BlockCountdown from 'src/components/BlockCountdown';
-import BlocksToTime from 'src/components/BlocksToTime';
+import BlockCountdown from '../../../components/BlockCountdown';
+import BlocksToTime from '../../../components/BlocksToTime';
 
 import { OnchainLinkReferendumFragment } from '../../../generated/graphql';
 import AddressComponent from '../../../ui-components/Address';

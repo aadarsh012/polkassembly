@@ -6,8 +6,8 @@ import { QueryResult } from '@apollo/react-common';
 import styled from '@xstyled/styled-components';
 import React, { useEffect, useState } from 'react';
 import { Grid, Icon } from 'semantic-ui-react';
-import useCurrentBlock from 'src/hooks/useCurrentBlock';
-import HelperTooltip from 'src/ui-components/HelperTooltip';
+import useCurrentBlock from '../../../hooks/useCurrentBlock';
+import HelperTooltip from '../../../ui-components/HelperTooltip';
 
 import { CouncilAtBlockNumberQuery, CouncilAtBlockNumberQueryVariables, PollVotesQuery, useCouncilAtBlockNumberQuery } from '../../../generated/graphql';
 import { CouncilVote, Vote } from '../../../types';

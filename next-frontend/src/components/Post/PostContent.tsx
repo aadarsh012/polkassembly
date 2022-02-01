@@ -4,8 +4,8 @@
 
 import styled from '@xstyled/styled-components';
 import React from 'react';
-import { noTitle } from 'src/global/noTitle';
-import getDefaultAddressField from 'src/util/getDefaultAddressField';
+import { noTitle } from '../../global/noTitle';
+import getDefaultAddressField from '../../util/getDefaultAddressField';
 
 import { DiscussionPostFragment, MotionPostFragment,ProposalPostFragment, ReferendumPostFragment, TreasuryProposalPostFragment } from '../../generated/graphql';
 import CreationLabel from '../../ui-components/CreationLabel';

@@ -6,18 +6,18 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import styled from '@xstyled/styled-components';
 import React, { useContext, useEffect,useState } from 'react';
 import { DropdownProps } from 'semantic-ui-react';
-import { ApiContext } from 'src/context/ApiContext';
-import { NotificationContext } from 'src/context/NotificationContext';
-import { UserDetailsContext } from 'src/context/UserDetailsContext';
-import { useGetCouncilMembersQuery } from 'src/generated/graphql';
-import { LoadingStatusType, NotificationStatus } from 'src/types';
-import AccountSelectionForm from 'src/ui-components/AccountSelectionForm';
-import AyeNayButtons from 'src/ui-components/AyeNayButtons';
-import Button from 'src/ui-components/Button';
-import ButtonLink from 'src/ui-components/ButtonLink';
-import Card from 'src/ui-components/Card';
-import { Form } from 'src/ui-components/Form';
-import Loader from 'src/ui-components/Loader';
+import { ApiContext } from '../../../../context/ApiContext';
+import { NotificationContext } from '../../../../context/NotificationContext';
+import { UserDetailsContext } from '../../../../context/UserDetailsContext';
+import { useGetCouncilMembersQuery } from '../../../../generated/graphql';
+import { LoadingStatusType, NotificationStatus } from '../../../../types';
+import AccountSelectionForm from '../../../../ui-components/AccountSelectionForm';
+import AyeNayButtons from '../../../../ui-components/AyeNayButtons';
+import Button from '../../../../ui-components/Button';
+import ButtonLink from '../../../../ui-components/ButtonLink';
+import Card from '../../../../ui-components/Card';
+import { Form } from '../../../../ui-components/Form';
+import Loader from '../../../../ui-components/Loader';
 
 interface Props {
 	accounts: InjectedAccountWithMeta[]

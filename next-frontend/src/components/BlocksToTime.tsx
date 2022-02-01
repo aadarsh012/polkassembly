@@ -6,8 +6,8 @@ import styled from '@xstyled/styled-components';
 import BN from 'bn.js';
 import React from 'react';
 import { Popup } from 'semantic-ui-react';
-import { useBlockTime } from 'src/hooks';
-import blockToTime from 'src/util/blockToTime';
+import { useBlockTime } from '../hooks';
+import blockToTime from '../util/blockToTime';
 
 interface Props {
 	blocks: number | BN;

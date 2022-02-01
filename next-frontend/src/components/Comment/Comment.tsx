@@ -5,8 +5,8 @@
 import styled from '@xstyled/styled-components';
 import { ApolloQueryResult } from 'apollo-client';
 import React, { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import getDefaultAddressField from 'src/util/getDefaultAddressField';
+import { useLocation } from 'react-router-dom'; //TODO: Fix
+import getDefaultAddressField from '../../util/getDefaultAddressField';
 
 import {
 	CommentFieldsFragment,

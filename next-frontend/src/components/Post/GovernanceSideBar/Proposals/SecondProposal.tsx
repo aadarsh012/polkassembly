@@ -6,8 +6,8 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import styled from '@xstyled/styled-components';
 import React, { useContext, useState } from 'react';
 import { DropdownProps } from 'semantic-ui-react';
-import { ApiContext } from 'src/context/ApiContext';
-import Loader from 'src/ui-components/Loader';
+import { ApiContext } from '../../../../context/ApiContext';
+import Loader from '../../../../ui-components/Loader';
 
 import { NotificationContext } from '../../../../context/NotificationContext';
 import { LoadingStatusType,NotificationStatus } from '../../../../types';

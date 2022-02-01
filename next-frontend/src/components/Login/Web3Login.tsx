@@ -8,12 +8,12 @@ import { stringToHex } from '@polkadot/util';
 import styled from '@xstyled/styled-components';
 import React, { useContext, useEffect, useState } from 'react';
 import { Divider, DropdownProps } from 'semantic-ui-react';
-import { APPNAME } from 'src/global/appName';
+import { APPNAME } from '../../global/appName';
 
 import ExtensionNotDetected from '../../components/ExtensionNotDetected';
 import { UserDetailsContext } from '../../context/UserDetailsContext';
 import { useAddressLoginMutation, useAddressLoginStartMutation } from '../../generated/graphql';
-import { useRouter } from '../../hooks';
+import { useRouter} from 'next/router';
 import { handleTokenChange } from '../../services/auth.service';
 import AccountSelectionForm from '../../ui-components/AccountSelectionForm';
 import Button from '../../ui-components/Button';
@@ -34,7 +34,7 @@ const LoginForm = ({ className, toggleWeb2Login }:Props): JSX.Element => {
 	const [isAccountLoading, setIsAccountLoading] = useState(true);
 	const [extensionNotFound, setExtensionNotFound] = useState(false);
 	const [accountsNotFound, setAccountsNotFound] = useState(false);
-	const { history } = useRouter();
+	const router = useRouter();
 	const [addressLoginStartMutation] = useAddressLoginStartMutation();
 	const [addressLoginMutation, { loading }] = useAddressLoginMutation();
 	const currentUser = useContext(UserDetailsContext);
@@ -124,12 +124,12 @@ const LoginForm = ({ className, toggleWeb2Login }:Props): JSX.Element => {
 
 			if (loginResult?.addressLogin?.token) {
 				handleTokenChange(loginResult.addressLogin.token, currentUser);
-				history.goBack();
+				router.back();
 			} else {
 				throw new Error('Web3 Login failed');
 			}
 		} catch (error) {
-			setErr(error);
+			setErr(error); //TODO: FIX
 		}
 	};
 

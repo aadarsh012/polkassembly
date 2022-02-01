@@ -4,10 +4,10 @@
 
 import { formatBalance } from '@polkadot/util';
 import React, { useContext, useEffect, useState } from 'react';
-import { ApiContext } from 'src/context/ApiContext';
-import { chainProperties } from 'src/global/networkConstants';
-import { LoadingStatusType } from 'src/types';
-import getNetwork from 'src/util/getNetwork';
+import { ApiContext } from '../../../../context/ApiContext';
+import { chainProperties } from '../../../../global/networkConstants';
+import { LoadingStatusType } from '../../../../types';
+import getNetwork from '../../../../util/getNetwork';
 
 import ProposalVoteInfo from './ProposalVoteInfo';
 import SecondProposal, { SecondProposalProps } from './SecondProposal';

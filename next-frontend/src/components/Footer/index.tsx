@@ -5,7 +5,7 @@
 import styled from '@xstyled/styled-components';
 import * as moment from 'moment';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Menu } from 'semantic-ui-react';
 
 interface Props {
@@ -20,18 +20,24 @@ const Footer = ({ className }:Props ): JSX.Element => {
 				<Menu.Item>
 					&copy; {moment.utc().year()} Premiurly
 				</Menu.Item>
-				<Menu.Item as={Link} to="/terms-and-conditions">
-					Terms &amp; conditions
-				</Menu.Item>
-				<Menu.Item as={Link} to="/terms-of-website">
-					Terms of website
-				</Menu.Item>
-				<Menu.Item as={Link} to="/privacy">
-					Privacy policy
+				<Menu.Item>
+					<Link href="/terms-and-conditions">
+						Terms &amp; conditions
+					</Link>
 				</Menu.Item>
 				<Menu.Item>
-					<a href='https://github.com/premiurly/polkassembly/issues' target='blank'>
-						Report an issue
+					<Link href="/terms-of-website">
+						Terms of website
+					</Link>
+				</Menu.Item>
+				<Menu.Item>
+					<Link href="/privacy">
+						Privacy policy
+					</Link>
+				</Menu.Item>
+				<Menu.Item>
+					<a href='https://github.com/premiurly/polkassembly/issues' target='_blank' rel='noreferrer'>
+							Report an issue
 					</a>
 				</Menu.Item>
 			</Menu>

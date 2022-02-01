@@ -7,9 +7,9 @@ import { ApolloQueryResult } from 'apollo-client';
 import React, { useContext, useEffect, useState } from 'react';
 import { Controller,useForm } from 'react-hook-form';
 import { GoCheck, GoX } from 'react-icons/go';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'; //TODO: FIX
 import { Icon } from 'semantic-ui-react';
-import getNetwork from 'src/util/getNetwork';
+import getNetwork from '../../util/getNetwork';
 
 import { NotificationContext } from '../../context/NotificationContext';
 import { UserDetailsContext } from '../../context/UserDetailsContext';

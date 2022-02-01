@@ -8,16 +8,16 @@ import { stringToHex } from '@polkadot/util';
 import styled from '@xstyled/styled-components';
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Divider, DropdownProps } from 'semantic-ui-react';
-import { APPNAME } from 'src/global/appName';
-import getNetwork from 'src/util/getNetwork';
+import { APPNAME } from '../../global/appName';
+import getNetwork from '../../util/getNetwork';
 
 import ExtensionNotDetected from '../../components/ExtensionNotDetected';
 import { ModalContext } from '../../context/ModalContext';
 import { UserDetailsContext } from '../../context/UserDetailsContext';
 import { useAddressSignupConfirmMutation, useAddressSignupStartMutation } from '../../generated/graphql';
-import { useRouter } from '../../hooks';
+import { useRouter } from 'next/router';
 import { handleTokenChange } from '../../services/auth.service';
 import AccountSelectionForm from '../../ui-components/AccountSelectionForm';
 import Button from '../../ui-components/Button';
@@ -40,7 +40,7 @@ const SignupForm = ({ className, toggleWeb2Signup }:Props): JSX.Element => {
 	const [isAccountLoading, setIsAccountLoading] = useState(true);
 	const [extensionNotFound, setExtensionNotFound] = useState(false);
 	const [accountsNotFound, setAccountsNotFound] = useState(false);
-	const { history } = useRouter();
+	const router = useRouter();
 	const [addressSignupStartMutation] = useAddressSignupStartMutation();
 	const [addressSignupConfirmMutation, { loading }] = useAddressSignupConfirmMutation();
 	const currentUser = useContext(UserDetailsContext);
@@ -137,12 +137,12 @@ const SignupForm = ({ className, toggleWeb2Signup }:Props): JSX.Element => {
 					content: 'Add an email in settings if you want to be able to recover your account!',
 					title: 'Add optional email'
 				});
-				history.goBack();
+				router.back();
 			} else {
 				throw new Error('Web3 Login failed');
 			}
 		} catch (error) {
-			setErr(error);
+			setErr(error); //TODO: Fix
 		}
 	};
 
@@ -187,11 +187,11 @@ const SignupForm = ({ className, toggleWeb2Signup }:Props): JSX.Element => {
 								ref={register({ required: true })}
 								type='checkbox'
 							/>
-							I have read and agree to the terms of the <Link to='/terms-and-conditions'>Polkassembly end user agreement</Link>.
+							I have read and agree to the terms of the <Link href='/terms-and-conditions'>Polkassembly end user agreement</Link>.
 						</label>
 						{errors.termsandconditions && <div className={'errorText'}>Please agree to the terms of the Polkassembly end user agreement.</div>}
 					</Form.Field>
-					<div className='text-muted'>To see how we use your personal data please see our <Link to='/privacy'>privacy notice</Link>.</div>
+					<div className='text-muted'>To see how we use your personal data please see our <Link href='/privacy'>privacy notice</Link>.</div>
 					<div className={'mainButtonContainer'}>
 						<Button
 							primary

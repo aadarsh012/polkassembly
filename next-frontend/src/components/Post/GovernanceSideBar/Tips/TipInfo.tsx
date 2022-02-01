@@ -6,10 +6,10 @@ import styled from '@xstyled/styled-components';
 import BN from 'bn.js';
 import React, { useContext, useEffect, useState } from 'react';
 import { Grid } from 'semantic-ui-react';
-import { ApiContext } from 'src/context/ApiContext';
-import HelperTooltip from 'src/ui-components/HelperTooltip';
-import NothingFoundCard from 'src/ui-components/NothingFoundCard';
-import formatBnBalance from 'src/util/formatBnBalance';
+import { ApiContext } from '../../../../context/ApiContext';
+import HelperTooltip from '../../../../ui-components/HelperTooltip';
+import NothingFoundCard from '../../../../ui-components/NothingFoundCard';
+import formatBnBalance from '../../../../util/formatBnBalance';
 
 import Address from '../../../../ui-components/Address';
 import Card from '../../../../ui-components/Card';

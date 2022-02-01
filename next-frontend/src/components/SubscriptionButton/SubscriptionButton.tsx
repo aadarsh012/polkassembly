@@ -4,7 +4,7 @@
 
 import styled from '@xstyled/styled-components';
 import React, { useContext,useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Icon, Popup } from 'semantic-ui-react';
 
 import { NotificationContext } from '../../context/NotificationContext';
@@ -112,7 +112,7 @@ const SubscriptionButton = function ({
 		?  <SubscribeButton />
 		: <Popup
 			trigger={<span><SubscribeButton/></span>}
-			content={<PopupContent>Set and verify an email <Link to="/settings">in your settings</Link> to be able to subscribe</PopupContent>}
+			content={<PopupContent>Set and verify an email <Link href="/settings">in your settings</Link> to be able to subscribe</PopupContent>}
 			hoverable={true}
 			position='top center'
 		/>;

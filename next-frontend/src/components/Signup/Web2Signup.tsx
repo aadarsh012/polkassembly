@@ -5,13 +5,13 @@
 import styled from '@xstyled/styled-components';
 import React, { useContext } from 'react';
 import { FieldError,useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Divider } from 'semantic-ui-react';
 
 import { ModalContext } from '../../context/ModalContext';
 import { UserDetailsContext } from '../../context/UserDetailsContext';
 import { useSignupMutation } from '../../generated/graphql';
-import { useRouter } from '../../hooks';
+import { useRouter } from 'next/router';
 import { handleTokenChange } from '../../services/auth.service';
 import Button from '../../ui-components/Button';
 import FilteredError from '../../ui-components/FilteredError';
@@ -26,7 +26,7 @@ interface Props {
 }
 
 const SignupForm = ({ className, toggleWeb2Signup }:Props): JSX.Element => {
-	const { history } = useRouter();
+	const router = useRouter();
 	const currentUser = useContext(UserDetailsContext);
 	const [signupMutation, { loading, error }] = useSignupMutation();
 	const { errors, handleSubmit, register } = useForm();
@@ -50,7 +50,7 @@ const SignupForm = ({ className, toggleWeb2Signup }:Props): JSX.Element => {
 						if (email) {
 							setModal({ content: 'We sent you an email to verify your address. Click on the link in the email.', title: 'You\'ve got some mail' });
 						}
-						history.goBack();
+						router.back();
 					}}
 
 				).catch((e) => {
@@ -120,11 +120,11 @@ const SignupForm = ({ className, toggleWeb2Signup }:Props): JSX.Element => {
 						ref={register({ required: true })}
 						type='checkbox'
 					/>
-					I have read and agree to the terms of the <Link to='/terms-and-conditions'>Polkassembly end user agreement</Link>.
+					I have read and agree to the terms of the <Link href='/terms-and-conditions'>Polkassembly end user agreement</Link>.
 				</label>
 				{errors.termsandconditions && <div className={'errorText'}>Please agree to the terms of the Polkassembly end user agreement.</div>}
 			</Form.Field>
-			<div className='text-muted'>To see how we use your personal data please see our <Link to='/privacy'>privacy notice</Link>.</div>
+			<div className='text-muted'>To see how we use your personal data please see our <Link href='/privacy'>privacy notice</Link>.</div>
 			<div className={'mainButtonContainer'}>
 				<Button
 					primary
