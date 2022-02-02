@@ -108,7 +108,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 		<>
 			<Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
 				<Menu className={`${className} ${NETWORK}`} inverted widths={2} id='menubar'>
-					<Menu.Item className='logo' id='title' onClick={handleClose}><Link href="/" passHref><Image alt='Polkassembly Logo' layout='intrinsic' width={100} height={33.33} src={logo} /></Link></Menu.Item>
+					<Menu.Item className='logo' id='title' onClick={handleClose}><Link href="/" passHref><a><Image alt='Polkassembly Logo' layout='intrinsic' width={100} height={33.33} src={logo} /></a></Link></Menu.Item>
 					<Menu.Menu position="right">
 						<NetworkDropdown />
 						<Menu.Item onClick={handleToggle} id='rightmenu'>
@@ -161,8 +161,8 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 
 			<Responsive minWidth={Responsive.onlyComputer.minWidth}>
 				<Menu className={`${className} ${NETWORK}`} stackable inverted borderless>
-					<Menu.Item className='logo' id='title'><Link href="/" passHref><Image alt='Polkassembly Logo' layout='intrinsic' width={138} height={46} src={logo} /></Link></Menu.Item>
-					{contentItems.map((item, index) => <Menu.Item key={index} className='desktop_items'><Link href={item.to} passHref>{item.content}</Link></Menu.Item>)}
+					<Menu.Item className='logo' id='title'><Link href="/" passHref><a><Image alt='Polkassembly Logo' layout='intrinsic' width={138} height={46} src={logo} /></a></Link></Menu.Item>
+					{contentItems.map((item, index) => <Menu.Item key={index} className='desktop_items'><Link href={item.to}>{item.content}</Link></Menu.Item>)}
 					<Menu.Item className='desktop_items'>
 						<Dropdown trigger={<>On-chain</>} icon={caretIcon} item={true}>
 							<Dropdown.Menu>

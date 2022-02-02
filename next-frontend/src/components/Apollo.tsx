@@ -26,7 +26,8 @@ import { JWTPayploadType } from '../types';
  * to get a new jwt token.
  */
 const fetchAccessToken = () =>
-	fetch(`${process.env.REACT_APP_HASURA_GRAPHQL_URL}`, {
+	fetch(`${process.env.NEXT_HASURA_GRAPHQL_URL}`, {
+		
 		body: JSON.stringify({ 'operationName':null,'query':'query get_new_token { token { token }}' }),
 		credentials: 'same-origin',
 		headers: {
@@ -109,7 +110,7 @@ const Apollo = ( { children }:Props ) => {
 	};
 
 	const httpLink = new HttpLink({
-		uri: process.env.REACT_APP_HASURA_GRAPHQL_URL
+		uri: process.env.NEXT_HASURA_GRAPHQL_URL
 	});
 
 	const tokenRefreshLink = new TokenRefreshLink({
