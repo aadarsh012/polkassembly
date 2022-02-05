@@ -31,48 +31,64 @@ const NetworkInfo = ({ className }: Props) => {
 			<a
 				className='social'
 				href={links.homepage}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='home'/>
 			</a>
 			<a
 				className='social'
 				href={links.github}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='github'/>
 			</a>
 			<a
 				className='social'
 				href={links.twitter}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='twitter'/>
 			</a>
 			<a
 				className='social'
 				href={links.discord}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='discord'/>
 			</a>
 			<a
 				className='social'
 				href={links.youtube}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='youtube'/>
 			</a>
 			<a
 				className='social'
 				href={links.reddit}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='reddit'/>
 			</a>
 			<a
 				className='social'
 				href={links.telegram}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='telegram'/>
 			</a>
 			<a
 				className='social'
 				href={links.blockExplorer}
+				target='_blank'
+				rel='noreferrer'
 			>
 				<Icon size='large' bordered={true} name='cube'/>
 			</a>
