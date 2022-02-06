@@ -3,7 +3,7 @@ import Head from 'next/head'
 // import styles from '../../../styles/Home.module.css'
 import OnchainPostsContainer from '../../screens/OnChain'
 
-const DiscussionPage: NextPage = () => {
+const OnchainPage: NextPage = () => {
   return (
     //className={styles.container}
     <div>
@@ -17,4 +17,4 @@ const DiscussionPage: NextPage = () => {
   )
 }
 
-export default DiscussionPage
+export default OnchainPage
