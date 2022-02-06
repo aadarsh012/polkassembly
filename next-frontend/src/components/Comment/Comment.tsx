@@ -4,8 +4,8 @@
 
 import styled from '@xstyled/styled-components';
 import { ApolloQueryResult } from 'apollo-client';
-import React, { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom'; //TODO: Fix
+import React, { useEffect, useRef, useState } from 'react';
+import { useRouter} from 'next/router';
 import getDefaultAddressField from '../../util/getDefaultAddressField';
 
 import {
@@ -48,11 +48,22 @@ interface Props{
 
 export const Comment = ({ className, comment, refetch } : Props) => {
 	const { author, content, created_at, id, updated_at } = comment;
-	const { hash } = useLocation();
+
+	const router = useRouter();
+
+	console.log("useRouter : ", router);
+
+	const [hash, setHash] = useState('');
+	
+	// Hash is only available on client side.
+	useEffect(() => {
+		setHash(window.location.hash);
+  }, []);
+	
 	const commentRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (hash === `#${id}`) {
+		if (hash === `${id}`) {
 			window.scrollTo(0, commentRef.current?.offsetTop || 0);
 		}
 	}, [hash, id]);

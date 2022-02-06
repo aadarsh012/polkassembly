@@ -128,8 +128,8 @@ const LoginForm = ({ className, toggleWeb2Login }:Props): JSX.Element => {
 			} else {
 				throw new Error('Web3 Login failed');
 			}
-		} catch (error) {
-			setErr(error); //TODO: FIX
+		} catch (error: any) {
+			setErr(error);
 		}
 	};
 

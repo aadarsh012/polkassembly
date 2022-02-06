@@ -7,7 +7,7 @@ import { ApolloQueryResult } from 'apollo-client';
 import React, { useContext, useEffect, useState } from 'react';
 import { Controller,useForm } from 'react-hook-form';
 import { GoCheck, GoX } from 'react-icons/go';
-import { useLocation } from 'react-router-dom'; //TODO: FIX
+import { useRouter} from 'next/router';
 import { Icon } from 'semantic-ui-react';
 import getNetwork from '../../util/getNetwork';
 
@@ -68,7 +68,8 @@ const EditableCommentContent = ({ authorId, className, content, commentId, refet
 	const toggleEdit = () => setIsEditing(!isEditing);
 	const { queueNotification } = useContext(NotificationContext);
 	const { control, errors, handleSubmit, setValue } = useForm();
-	const { pathname } = useLocation();
+	const router = useRouter();
+	const pathname = router.pathname;
 
 	useEffect(() => {
 		isEditing && setValue('content',content);
