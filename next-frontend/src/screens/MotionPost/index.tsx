@@ -5,7 +5,7 @@
 import React from 'react';
 
 import Post from '../../components/Post/Post';
-import { useBountyPostAndCommentsQuery } from '../../generated/graphql';
+import { useMotionPostAndCommentsQuery } from '../../generated/graphql';
 import FilteredError from '../../ui-components/FilteredError';
 import Loader from '../../ui-components/Loader';
 
@@ -13,14 +13,14 @@ interface Props {
   id: number
 }
 
-const PostBounty = (props:Props) => {
-	const { data, error, refetch } = useBountyPostAndCommentsQuery({ variables: { id: props.id } });
+const MotionPost = (props:Props) => {
+	const { data, error, refetch } = useMotionPostAndCommentsQuery({ variables: { id: props.id } });
 
 	if (error?.message) return <FilteredError text={error.message}/>;
 
-	if (data) return <Post data={data} isBounty refetch={refetch} />;
+	if (data) return <Post data={data} isMotion refetch={refetch} />;
 
 	return <Loader/>;
 };
 
-export default PostBounty;
+export default MotionPost;
