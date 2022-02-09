@@ -56,7 +56,7 @@ import ShareButton from '../ShareButton';
 import SubscriptionButton from '../SubscriptionButton/SubscriptionButton';
 import Timeline from '../Timeline';
 import TrackerButton from '../TrackerButton';
-// import GovenanceSideBar from './GovernanceSideBar'; TODO: Enable after extension fixed
+import GovenanceSideBar from './GovernanceSideBar';
 import Poll from './Poll';
 import CreatePostComment from './PostCommentForm';
 import PostBountyInfo from './PostGovernanceInfo/PostBountyInfo';
@@ -252,22 +252,22 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 		isTechCommitteeProposalProposer
 	);
 
-	// const Sidebar = () => <>
-	// 	<GovenanceSideBar
-	// 		isBounty={isBounty}
-	// 		isMotion={isMotion}
-	// 		isProposal={isProposal}
-	// 		isReferendum={isReferendum}
-	// 		isTipProposal={isTipProposal}
-	// 		isTreasuryProposal={isTreasuryProposal}
-	// 		isTechCommitteeProposal={isTechCommitteeProposal}
-	// 		onchainId={onchainId}
-	// 		onchainLink={definedOnchainLink}
-	// 		status={postStatus}
-	// 	/>
-	// 	{isDiscussion(post) && <Poll postId={post.id} canEdit={post.author?.id === id} />}
-	// 	<OptionPoll postId={post.id} canEdit={post.author?.id === id} />
-	// </>;
+	const Sidebar = () => <>
+		<GovenanceSideBar
+			isBounty={isBounty}
+			isMotion={isMotion}
+			isProposal={isProposal}
+			isReferendum={isReferendum}
+			isTipProposal={isTipProposal}
+			isTreasuryProposal={isTreasuryProposal}
+			isTechCommitteeProposal={isTechCommitteeProposal}
+			onchainId={onchainId}
+			onchainLink={definedOnchainLink}
+			status={postStatus}
+		/>
+		{isDiscussion(post) && <Poll postId={post.id} canEdit={post.author?.id === id} />}
+		<OptionPoll postId={post.id} canEdit={post.author?.id === id} />
+	</>;
 
 	return (
 		<Grid className={className}>
@@ -410,7 +410,7 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 					</Card>
 				}
 				<Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
-					{/* <Sidebar /> */}
+					<Sidebar />
 				</Responsive>
 				{ !!post.comments?.length &&
 					<Comments
@@ -422,7 +422,7 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 			</Grid.Column>
 			<Grid.Column mobile={16} tablet={16} computer={6} largeScreen={6}>
 				<Responsive minWidth={Responsive.onlyComputer.minWidth}>
-					{/* <Sidebar /> */}
+					<Sidebar />
 				</Responsive>
 				<ScrollToTop/>
 			</Grid.Column>

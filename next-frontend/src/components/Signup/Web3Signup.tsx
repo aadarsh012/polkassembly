@@ -141,8 +141,8 @@ const SignupForm = ({ className, toggleWeb2Signup }:Props): JSX.Element => {
 			} else {
 				throw new Error('Web3 Login failed');
 			}
-		} catch (error) {
-			setErr(error); //TODO: Fix
+		} catch (error: any) {
+			setErr(error);
 		}
 	};
 

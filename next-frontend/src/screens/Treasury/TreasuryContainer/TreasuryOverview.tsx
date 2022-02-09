@@ -389,36 +389,6 @@ const TreasuryOverview = () => {
 									</Grid.Row>
 								</Grid>
 							</Grid.Column>
-
-							{/* Count Down Column */}
-							{/* <Grid.Column>
-								<Grid columns={2} stackable>
-									<Grid.Row only = {'mobile tablet'} textAlign = {'center'}>
-										<Grid.Column  width={4}>
-											<Icon corner circular size='large' name='stopwatch' />
-										</Grid.Column>
-
-										<Grid.Column width={12}>
-											Count Down
-											<HelperTooltip content='Count Down //TODO' />
-											{!currentBlock.isZero() ? <h6>{blockToTime(currentBlock.toNumber() % (result.spendPeriod.toNumber()), blocktime)}</h6> : <Loader/>}
-											Todo-text
-										</Grid.Column>
-									</Grid.Row>
-									<Grid.Row only = {'computer'} textAlign = {'left'}>
-										<Grid.Column  width={4}>
-											<Icon corner circular size='large' name='stopwatch' />
-										</Grid.Column>
-
-										<Grid.Column width={12}>
-											Count Down
-											<HelperTooltip content='Count Down //TODO' />
-											{!currentBlock.isZero() ? <h6>{blockToTime(currentBlock.toNumber() % (result.spendPeriod.toNumber()), blocktime)}</h6> : <Loader/>}
-											Todo-text
-										</Grid.Column>
-									</Grid.Row>
-								</Grid>
-							</Grid.Column> */}
 						</Grid.Row>
 					</Grid>
 				</Card>

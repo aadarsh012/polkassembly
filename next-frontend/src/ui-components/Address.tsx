@@ -3,7 +3,8 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import { DeriveAccountFlags, DeriveAccountInfo, DeriveAccountRegistration } from '@polkadot/api-derive/types';
-// import Identicon from '@polkadot/react-identicon'; TODO: FIX this (identicon package issue ?!)
+// TODO: FIX this (identicon package issue ?!)
+// import Identicon from '@polkadot/react-identicon';
 import styled from '@xstyled/styled-components';
 import React, { useContext, useEffect, useState } from 'react';
 import { Popup } from 'semantic-ui-react';
@@ -55,20 +56,6 @@ const Address = ({ address, className, displayInline, extensionName, popupConten
 			.then(unsub => { unsubscribe = unsub; })
 			.catch(e => console.error(e));
 
-		return () => unsubscribe && unsubscribe();
-	}, [address, api, apiReady]);
-
-	useEffect(() => {
-		if (!api) {
-			return;
-		}
-
-		if (!apiReady) {
-			return;
-		}
-
-		let unsubscribe: () => void;
-
 		api.derive.accounts.flags(address, (result: DeriveAccountFlags) => {
 			setFlags(result);
 		})
@@ -86,8 +73,6 @@ const Address = ({ address, className, displayInline, extensionName, popupConten
 				size={displayInline ? 20 : 32}
 				theme={'polkadot'}
 			/> */}
-
-			Identicon
 			<div className='content'>
 				{displayInline
 					// When inline disregard the extension name.

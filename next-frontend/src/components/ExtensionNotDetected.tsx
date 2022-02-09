@@ -4,13 +4,20 @@
 
 import * as React from 'react';
 import Card from '../ui-components/Card';
-
+import { useEffect, useState } from 'react';
 import getExtensionUrl from '../util/getExtensionUrl';
 
 const ExtensionNotDetected = () =>
-	<Card>
+	 {
+		const [extensionURL, setExtensionURL] = useState('');
+
+		 useEffect(()=>{
+			setExtensionURL(getExtensionUrl());
+		 },[])
+
+		return <Card>
 		<div className='text-muted'>Polkadot-js extension not detected.</div>
-		{getExtensionUrl() ?
+		{extensionURL ?
 			<div className='text-muted'>
 				No web 3 account integration could be found. To be able to vote on-chain, visit this page on a computer with polkadot-js entension.
 			</div>
@@ -19,7 +26,7 @@ const ExtensionNotDetected = () =>
 				Please install <a href='https://www.mozilla.org/en-US/firefox/'>Firefox</a> or <a href='https://www.google.com/chrome/'>Chrome</a> browser to use this feature.
 			</div>
 		}
-	</Card>
+	</Card>}
 ;
 
 export default ExtensionNotDetected;

@@ -41,7 +41,7 @@ const ResetPassword = ({ className }:Props): JSX.Element => {
 			resetPassword({
 				variables: {
 					newPassword,
-					token: `${token}`, //TODO: Check 'type error' with senior devs
+					token: `${token}`,
 					userId: Number(userId)
 				}
 			}).then(({ data }) => {

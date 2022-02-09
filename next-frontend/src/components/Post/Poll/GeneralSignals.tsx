@@ -57,8 +57,8 @@ const CouncilSignals = ({ ayes, className, endBlock, nays, ownVote, pollId, canE
 			});
 
 			votesRefetch();
-		} catch (error) {
-			setErr(error); //TODO: FIX
+		} catch (error: any) {
+			setErr(error);
 		}
 	}, [id, deleteVoteMutation, pollId, votesRefetch]);
 
@@ -77,7 +77,7 @@ const CouncilSignals = ({ ayes, className, endBlock, nays, ownVote, pollId, canE
 			}).catch(console.error);
 
 			votesRefetch();
-		} catch (error) {
+		} catch (error: any) {
 			setErr(error);
 		}
 	}, [id, addPollVoteMutation, pollId, votesRefetch]);
@@ -96,7 +96,7 @@ const CouncilSignals = ({ ayes, className, endBlock, nays, ownVote, pollId, canE
 			});
 
 			pollRefetch();
-		} catch (error) {
+		} catch (error: any) {
 			setErr(error);
 		}
 	}, [id, editPollMutation, pollEndBlock, pollId, pollRefetch]);

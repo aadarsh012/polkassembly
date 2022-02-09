@@ -49,8 +49,8 @@ const OptionPoll = ({ className, optionPollId, question, options, endAt }: Props
 					userId: id
 				}
 			});
-		} catch (error) {
-			setErr(error); //TODO: FIX
+		} catch (error: any) {
+			setErr(error);
 		}
 
 		try {
@@ -63,7 +63,7 @@ const OptionPoll = ({ className, optionPollId, question, options, endAt }: Props
 			});
 
 			refetch();
-		} catch (error) {
+		} catch (error: any) {
 			setErr(error);
 		}
 	}, [id, addOptionPollVoteMutation, deleteOptionPollVoteMutation, optionPollId, refetch]);

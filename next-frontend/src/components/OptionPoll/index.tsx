@@ -14,9 +14,7 @@ interface Props {
 	canEdit: boolean
 }
 
-// TODO: FIX
-
-export default ({ postId, canEdit }: Props) => {
+export default function OptionPollWrapper ({ postId, canEdit }: Props) {
 	const { data, error } = useOptionPollQuery({ variables: { postId } });
 
 	if (error?.message) return <Card><FilteredError text={error.message}/></Card>;
