@@ -3,7 +3,6 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 
 import React from 'react';
-
 import Post from '../../components/Post/Post';
 import { useDiscussionPostAndCommentsQuery } from '../../generated/graphql';
 import FilteredError from '../../ui-components/FilteredError';

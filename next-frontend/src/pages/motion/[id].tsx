@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 // import styles from '../../../styles/Home.module.css'
 import MotionPost from '../../screens/MotionPost'
 
@@ -11,11 +10,6 @@ const MotionPostPage: NextPage<Props> = ({id}) => {
   return (
     //className={styles.container}
     <div>
-      <Head>
-        <title>Polkaassembly | Motion</title>
-        <meta name="description" content="Polkaassembly | Motion" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <MotionPost id={id} />
     </div>
   )

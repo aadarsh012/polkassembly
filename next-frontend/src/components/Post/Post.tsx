@@ -6,6 +6,8 @@ import styled from '@xstyled/styled-components';
 import { ApolloQueryResult } from 'apollo-client';
 import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
+
 import { Grid, Icon, Responsive } from 'semantic-ui-react';
 
 import { MetaContext } from '../../context/MetaContext';
@@ -123,17 +125,6 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 		});
 		global.window.localStorage.setItem('users', users.join(','));
 	}, [post]);
-
-	// TODO: Check Meta for each Post
-	// useEffect(() => {
-	// 	setMetaContextState((prevState) => {
-	// 		return {
-	// 			...prevState,
-	// 			description: post?.content || prevState.description,
-	// 			title: `${post?.title || 'Polkassembly' }`
-	// 		};
-	// 	});
-	// }, [post, setMetaContextState]);
 
 	const isOnchainPost = isMotion || isProposal || isReferendum || isTreasuryProposal || isBounty || isTechCommitteeProposal || isTipProposal;
 
@@ -270,6 +261,13 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 	</>;
 
 	return (
+		<>
+		<Head>
+			<title>{post?.title || 'Polkassembly' }</title>
+			<meta name="description" content={post?.content || 'Polkassembly Post' } />
+			<link rel="icon" href="/favicon.ico" />
+		</Head>
+		
 		<Grid className={className}>
 			<Grid.Column mobile={16} tablet={16} computer={10} largeScreen={10}>
 				{redirection.link &&
@@ -427,6 +425,7 @@ const Post = ( { className, data, isBounty = false, isMotion = false, isProposal
 				<ScrollToTop/>
 			</Grid.Column>
 		</Grid>
+		</>
 	);
 };
 

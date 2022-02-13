@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 // import styles from '../../../styles/Home.module.css'
 import PostTreasury from '../../screens/TreasuryPost'
 
@@ -11,12 +10,7 @@ const PostTreasuryPage: NextPage<Props> = ({id}) => {
   return (
     //className={styles.container}
     <div>
-      <Head>
-        <title>Polkaassembly | Treasury</title>
-        <meta name="description" content="Polkaassembly | Treasury" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <PostTreasuryPage id={id} />
+      <PostTreasury id={id} />
     </div>
   )
 }

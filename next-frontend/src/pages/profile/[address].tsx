@@ -13,7 +13,7 @@ const ProfilePage: NextPage<Props> = ({address}) => {
     <div>
       <Head>
         <title>Polkaassembly | Profile</title>
-        <meta name="description" content="Polkaassembly | Profile" />
+        <meta name="description" content="Polkaassembly Profile" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Profile address={address} />
