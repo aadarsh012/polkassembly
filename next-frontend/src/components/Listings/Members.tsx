@@ -23,20 +23,22 @@ const Members = ({ className, data, prime }: Props) => {
 				(member, i) => (
 					<li key={member} className='proposals__item'>
 						{<Link href={`/profile/${member}?council=true`} passHref>
-							<div className='member_card'>
-								<Segment.Group horizontal>
-									<Segment className='index'>
-										<h5>#{i + 1}</h5>
-									</Segment>
-									<Segment>
-										<Address
-											address={member}
-											className='address'
-										/>
-										{prime === member  ? <StatusTag className='statusTag' status={'prime'} /> : null }
-									</Segment>
-								</Segment.Group>
-							</div>
+							<a>
+								<div className='member_card'>
+									<Segment.Group horizontal>
+										<Segment className='index'>
+											<h5>#{i + 1}</h5>
+										</Segment>
+										<Segment>
+											<Address
+												address={member}
+												className='address'
+											/>
+											{prime === member  ? <StatusTag className='statusTag' status={'prime'} /> : null }
+										</Segment>
+									</Segment.Group>
+								</div>
+							</a>
 						</Link>}
 					</li>
 				)

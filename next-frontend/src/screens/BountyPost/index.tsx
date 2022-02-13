@@ -6,6 +6,7 @@ import React from 'react';
 
 import Post from '../../components/Post/Post';
 import { useBountyPostAndCommentsQuery } from '../../generated/graphql';
+// import Head from 'next/head'
 import FilteredError from '../../ui-components/FilteredError';
 import Loader from '../../ui-components/Loader';
 
@@ -18,7 +19,16 @@ const PostBounty = (props:Props) => {
 
 	if (error?.message) return <FilteredError text={error.message}/>;
 
-	if (data) return <Post data={data} isBounty refetch={refetch} />;
+	if (data) {
+		return <>
+			{/* <Head>
+        <title>Polkaassembly | Hello World</title>
+        <meta name="description" content="Polkaassembly | Bounty" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head> */}
+			<Post data={data} isBounty refetch={refetch} />;
+		</>
+	}
 
 	return <Loader/>;
 };

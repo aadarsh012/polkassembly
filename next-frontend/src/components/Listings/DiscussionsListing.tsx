@@ -28,16 +28,18 @@ const Discussions = ({ className, data }: Props) => {
 						return !!post?.author?.username &&
 							<li key={post.id} className='discussions__item'>
 								{<Link href={`/post/${post.id}`} passHref>
-									<DiscussionCard
-										defaultAddress={post.author[defaultAddressField]}
-										comments={post.comments_aggregate.aggregate?.count
-											? post.comments_aggregate.aggregate.count.toString()
-											: 'no'}
-										created_at={post.created_at}
-										last_update={post.last_update?.last_update}
-										title={post.title || 'No title'}
-										username={post.author.username}
-									/>
+									<a>
+										<DiscussionCard
+											defaultAddress={post.author[defaultAddressField]}
+											comments={post.comments_aggregate.aggregate?.count
+												? post.comments_aggregate.aggregate.count.toString()
+												: 'no'}
+											created_at={post.created_at}
+											last_update={post.last_update?.last_update}
+											title={post.title || 'No title'}
+											username={post.author.username}
+										/>
+									</a>
 								</Link>}
 							</li>
 						;

@@ -37,17 +37,19 @@ const TipProposals = ({ className, data }: Props) => {
 					return !!post?.author?.username && !!post?.onchain_link?.onchain_tip.length &&
 						<li key={post.id} className='proposals__item'>
 							{<Link href={`/tip/${onchainId}`} passHref>
-								<GovernanceCard
-									address={post.onchain_link.proposer_address}
-									comments={post.comments_aggregate.aggregate?.count
-										? post.comments_aggregate.aggregate.count.toString()
-										: 'no'}
-									tipReason={post.onchain_link.onchain_tip?.[0]?.reason}
-									onchainId={onchainId}
-									status={post.onchain_link.onchain_tip?.[0]?.tipStatus?.[0].status}
-									title={post.title}
-									topic={post.topic.name}
-								/>
+								<a>
+									<GovernanceCard
+										address={post.onchain_link.proposer_address}
+										comments={post.comments_aggregate.aggregate?.count
+											? post.comments_aggregate.aggregate.count.toString()
+											: 'no'}
+										tipReason={post.onchain_link.onchain_tip?.[0]?.reason}
+										onchainId={onchainId}
+										status={post.onchain_link.onchain_tip?.[0]?.tipStatus?.[0].status}
+										title={post.title}
+										topic={post.topic.name}
+									/>
+								</a>
 							</Link>}
 						</li>
 					;

@@ -38,17 +38,19 @@ const TechCommitteeProposals = ({ className, data }: Props) => {
 					return !!post?.author?.username && !!post.onchain_link?.onchain_tech_committee_proposal.length &&
 						<li key={post.id} className='tech_committee_proposals_item'>
 							{<Link href={`/tech/${onchainId}`} passHref>
-								<GovernanceCard
-									address={post.onchain_link.proposer_address}
-									comments={post.comments_aggregate.aggregate?.count
-										? post.comments_aggregate.aggregate.count.toString()
-										: 'no'}
-									method={post.onchain_link.onchain_tech_committee_proposal[0]?.preimage?.method}
-									onchainId={onchainId}
-									status={post.onchain_link.onchain_tech_committee_proposal[0]?.status?.[0].status}
-									title={post.title}
-									topic={post.topic.name}
-								/>
+								<a>
+									<GovernanceCard
+										address={post.onchain_link.proposer_address}
+										comments={post.comments_aggregate.aggregate?.count
+											? post.comments_aggregate.aggregate.count.toString()
+											: 'no'}
+										method={post.onchain_link.onchain_tech_committee_proposal[0]?.preimage?.method}
+										onchainId={onchainId}
+										status={post.onchain_link.onchain_tech_committee_proposal[0]?.status?.[0].status}
+										title={post.title}
+										topic={post.topic.name}
+									/>
+								</a>
 							</Link>}
 						</li>
 					;

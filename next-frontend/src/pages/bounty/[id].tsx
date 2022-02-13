@@ -11,11 +11,11 @@ const PostBountyPage: NextPage<Props> = ({id}) => {
   return (
     //className={styles.container}
     <div>
-      <Head>
+      {/* <Head>
         <title>Polkaassembly | Bounty</title>
         <meta name="description" content="Polkaassembly | Bounty" />
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </Head> */}
       <PostBounty id={id} />
     </div>
   )

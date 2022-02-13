@@ -38,16 +38,18 @@ const Bounties = ({ className, data }: Props) => {
 					return !!post?.author?.username && !!post.onchain_link?.onchain_bounty.length &&
 						<li key={post.id} className='bounties__item'>
 							{<Link href={`/bounty/${onchainId}`} passHref>
-								<GovernanceCard
-									address={post.onchain_link.proposer_address}
-									comments={post.comments_aggregate.aggregate?.count
-										? post.comments_aggregate.aggregate.count.toString()
-										: 'no'}
-									onchainId={onchainId}
-									status={post.onchain_link.onchain_bounty[0]?.bountyStatus?.[0].status}
-									title={post.title}
-									topic={post.topic.name}
-								/>
+								<a>
+									<GovernanceCard
+										address={post.onchain_link.proposer_address}
+										comments={post.comments_aggregate.aggregate?.count
+											? post.comments_aggregate.aggregate.count.toString()
+											: 'no'}
+										onchainId={onchainId}
+										status={post.onchain_link.onchain_bounty[0]?.bountyStatus?.[0].status}
+										title={post.title}
+										topic={post.topic.name}
+									/>
+								</a>
 							</Link>}
 						</li>
 					;
