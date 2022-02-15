@@ -167,7 +167,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 					<Menu.Item className='desktop_items'>
 						<Dropdown trigger={<>On-chain</>} icon={caretIcon} item={true}>
 							<Dropdown.Menu>
-								{onchainItems.map((item, index) =><Menu.Item key={index}><Link href={item.to}>{item.content}</Link></Menu.Item>)}
+								{onchainItems.map((item, index) =><Menu.Item key={index}><Link href={item.to}><a style={{color:'#333'}}>{item.content}</a></Link></Menu.Item>)}
 							</Dropdown.Menu>
 						</Dropdown>
 					</Menu.Item>
@@ -214,7 +214,7 @@ export default styled(MenuBar)`
 			background-color: black_full !important;
 		}
 		.item{
-			color: grey_secondary;
+			color: grey_secondary !important;
 			font-weight: 500;
 			&:hover {
 				color: white;
