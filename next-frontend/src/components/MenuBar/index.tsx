@@ -9,6 +9,7 @@ import { MdClose } from 'react-icons/md';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
+import NoSSR from 'react-no-ssr';
 import { Accordion, Dropdown, Icon, Menu, Responsive, Sidebar, SidebarPusher } from 'semantic-ui-react';
 import NetworkDropdown from '../../ui-components/NetworkDropdown';
 
@@ -105,7 +106,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 	};
 
 	return (
-		<>
+		<NoSSR>
 			<Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
 				<Menu className={`${className} ${NETWORK}`} inverted widths={2} id='menubar'>
 					<Menu.Item className='logo' id='title' onClick={handleClose}><Link href="/" passHref><a><Image alt='Polkassembly Logo' layout='intrinsic' width={100} height={33.33} src={logo} /></a></Link></Menu.Item>
@@ -191,7 +192,7 @@ const MenuBar = ({ className } : Props): JSX.Element => {
 					</Menu.Menu>
 				</Menu>
 			</Responsive>
-		</>
+		</NoSSR>
 	);
 };
 
