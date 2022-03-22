@@ -17,7 +17,7 @@ interface Props {
 	// setTipModalOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const SetOnChainIdentityButton = ({
+const SetOnChainIdentityModal = ({
 	className
 	// setTipModalOpen,
 } : Props) => {
@@ -224,7 +224,7 @@ const SetOnChainIdentityButton = ({
 
 };
 
-export default styled(SetOnChainIdentityButton)`
+export default styled(SetOnChainIdentityModal)`
 	.text-center  {
 		text-align : center;
 	}

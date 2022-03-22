@@ -13,7 +13,7 @@ import Email from './email';
 import Multisig from './multisig';
 import Password from  './password';
 import SetCredentials from './setCredentials';
-import SetOnChainIdentityButton from './setOnChainIdentityButton';
+import SetOnChainIdentityModal from './setOnChainIdentityModal';
 import Username from './username';
 
 interface Props {
@@ -41,7 +41,7 @@ const Settings = ({ className }:Props): JSX.Element => {
 			<Grid.Column className='col-right' only='computer' computer={4} largeScreen={5} widescreen={5}>
 				<div className='card-right'>
 					<h4>Identity </h4>
-					<SetOnChainIdentityButton />
+					<SetOnChainIdentityModal />
 
 					<Divider className='divider' />
 
