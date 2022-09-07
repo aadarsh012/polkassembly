@@ -8,6 +8,8 @@ import React, { useEffect, useState } from 'react';
 export interface ApiContextType {
 	api: ApiPromise | undefined;
 	apiReady: boolean;
+	wsProvider: string;
+	setWsProvider: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const ApiContext: React.Context<ApiContextType> = React.createContext(
@@ -18,20 +20,19 @@ export interface ApiContextProviderProps {
 	children?: React.ReactElement;
 }
 
-const WS_PROVIDER = process.env.REACT_APP_WS_PROVIDER || 'wss://kusama-rpc.polkadot.io';
-
 export function ApiContextProvider(
 	props: ApiContextProviderProps
 ): React.ReactElement {
 	const { children = null } = props;
 	const [api, setApi] = useState<ApiPromise>();
 	const [apiReady, setApiReady] = useState(false);
+	const [wsProvider, setWsProvider] = useState<string>(process.env.REACT_APP_WS_PROVIDER || 'wss://kusama-rpc.polkadot.io');
 
 	useEffect(() => {
-		const provider = new WsProvider(WS_PROVIDER);
+		const provider = new WsProvider(wsProvider);
 		setApiReady(false);
 		setApi(new ApiPromise({ provider }));
-	},[]);
+	},[wsProvider]);
 
 	useEffect(() => {
 		if(api){
@@ -46,7 +47,7 @@ export function ApiContextProvider(
 	}, [api]);
 
 	return (
-		<ApiContext.Provider value={{ api, apiReady }}>
+		<ApiContext.Provider value={{ api, apiReady, setWsProvider, wsProvider }}>
 			{children}
 		</ApiContext.Provider>
 	);

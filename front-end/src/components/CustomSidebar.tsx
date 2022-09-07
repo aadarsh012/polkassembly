@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom';
 import { Divider, Icon, List, Responsive } from 'semantic-ui-react';
 import { useRouter } from 'src/hooks';
 import NetworkDropdown from 'src/ui-components/NetworkDropdown';
+import RPCDropdown from 'src/ui-components/RPCDropdown';
 
 import { ReactComponent as BountyIcon } from '../assets/sidebar/bounties.svg';
 import { ReactComponent as CalendarIcon } from '../assets/sidebar/calendar.svg';
@@ -174,6 +175,8 @@ const CustomSidebar = ({ className,  setIsCollapsed, sidebarHidden, setSidebarHi
 
 					<Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
 						<NetworkDropdown className='mobile-network-dropdown' />
+						<Divider />
+						<RPCDropdown className='mobile-endpoint-dropdown'/>
 						<Divider />
 					</Responsive>
 
@@ -444,6 +447,16 @@ export default styled(CustomSidebar)`
 
 		.dropdown.icon {
 			color: #000 !important;
+		}
+	}
+
+	.mobile-endpoint-dropdown {
+		display: flex;
+		margin-left: 12px;
+
+		.label {
+			color: #000 !important;
+			width: 100%;
 		}
 	}
 `;

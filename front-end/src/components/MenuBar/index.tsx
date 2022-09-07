@@ -8,6 +8,7 @@ import { ReactNode, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Dropdown, Icon, Menu, Responsive } from 'semantic-ui-react';
 import NetworkDropdown from 'src/ui-components/NetworkDropdown';
+import RPCDropdown from 'src/ui-components/RPCDropdown';
 import SearchBar from 'src/ui-components/SearchBar';
 
 import logo from '../../assets/polkassembly-logo.png';
@@ -102,6 +103,7 @@ const MenuBar = ({ className, toggleSidebarHidden, setSidebarHidden } : Props): 
 
 						<SearchBar className='search-bar' />
 						<NetworkDropdown />
+						<RPCDropdown />
 						{username
 							? <>
 								<Dropdown className='logged-in-dropdown' trigger={userMenu} icon={caretIcon} item={true}>
