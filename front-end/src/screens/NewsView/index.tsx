@@ -11,9 +11,16 @@ import getNetwork from 'src/util/getNetwork';
 
 const network = getNetwork();
 
+enum Profile {
+	Polkadot='polkadot',
+	Kusama='kusamanetwork'
+}
+
 const NewsView = ({ className } : {className?: string}) => {
 
 	const profile = chainLinks[network].twitter.split('/')[3];
+	const isPolkadotOrKusama = profile === Profile.Kusama || profile === Profile.Polkadot;
+	const profile2 = profile === Profile.Kusama? Profile.Polkadot: Profile.Kusama;
 
 	const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
@@ -22,16 +29,33 @@ const NewsView = ({ className } : {className?: string}) => {
 			<h1>News</h1>
 			<Grid stackable reversed='mobile tablet'>
 				<Grid.Column className='timeline-col' mobile={16} tablet={10} computer={8}>
-					<TwitterTimelineEmbed
-						sourceType="profile"
-						screenName={profile}
-						autoHeight={false}
-						noHeader={true}
-						options={
-							{ height: vh - 20 }
-						}
-					/>
+					<div>
+						{isPolkadotOrKusama && <h3>{profile === Profile.Kusama? 'Kusama': 'Polkadot'}</h3>}
+						<TwitterTimelineEmbed
+							sourceType="profile"
+							screenName={profile}
+							autoHeight={false}
+							noHeader={true}
+							options={
+								{ height: vh - 250 }
+							}
+						/>
+					</div>
 				</Grid.Column>
+				{isPolkadotOrKusama && (<Grid.Column className='timeline-col' mobile={16} tablet={10} computer={8}>
+					<div>
+						<h3>{profile2 === Profile.Kusama ? 'Kusama' : 'Polkadot'}</h3>
+						<TwitterTimelineEmbed
+							sourceType="profile"
+							screenName={profile2}
+							autoHeight={false}
+							noHeader={true}
+							options={
+								{ height: vh - 250 }
+							}
+						/>
+					</div>
+				</Grid.Column>)}
 			</Grid>
 		</div>
 	);
