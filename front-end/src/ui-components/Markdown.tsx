@@ -5,6 +5,7 @@
 import styled from '@xstyled/styled-components';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 interface Props {
 	className?: string
@@ -13,7 +14,8 @@ interface Props {
 }
 
 const Markdown = ({ className, isPreview=false, md }: Props) => {
-	return <ReactMarkdown className={isPreview ? `${className} mde-preview-content` : className} source={md} linkTarget='_blank' />;
+	// eslint-disable-next-line react/no-children-prop
+	return <ReactMarkdown className={isPreview ? `${className} mde-preview-content` : className} children={md} rehypePlugins={[rehypeRaw]} linkTarget='_blank' />;
 };
 
 export default styled(Markdown)`

@@ -7,7 +7,7 @@ import React from 'react';
 import { FieldError, NestDataObject } from 'react-hook-form/dist/types';
 
 import { Form } from '../ui-components/Form';
-import { MarkdownEditor } from '../ui-components/MarkdownEditor';
+import { NewEditor } from '../ui-components/MarkdownEditor';
 import messages from '../util/messages';
 
 interface Props {
@@ -23,7 +23,7 @@ const ContentForm = ({ className, errorContent, height, onChange, value }: Props
 	return (
 		<div className={className}>
 			<Form.Group className={errorContent? 'error': ''}>
-				<MarkdownEditor
+				<NewEditor
 					className={ errorContent? 'error': ''}
 					height={height}
 					name={'content'}
