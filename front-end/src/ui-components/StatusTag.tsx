@@ -5,7 +5,7 @@
 import styled from '@xstyled/styled-components';
 import React, { ReactNode } from 'react';
 import { Label } from 'semantic-ui-react';
-import { bountyStatus, bountyStatusMap, childBountyStatus, childBountyStatusMap, motionStatus, proposalStatus, referendumStatus, tipStatus, tipStatusMap } from 'src/global/statuses';
+import { bountyStatus, bountyStatusMap, childBountyStatus, childBountyStatusMap, motionStatus, proposalStatus, referendumStatus, tipStatus, tipStatusMap, wordSpacing } from 'src/global/statuses';
 
 interface Props{
 	children?: ReactNode,
@@ -42,7 +42,7 @@ const StatusTag = ({ children, className, content, status }: Props) => {
 
 export default styled(StatusTag).attrs(( { status }: Props) => ({
 	className: status,
-	content: status
+	content: wordSpacing(status)
 }))`
 	&.ui.label {
 		font-size: xs;

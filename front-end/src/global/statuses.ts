@@ -82,3 +82,7 @@ export const approvalStatus = {
 	PENDING: 'pending',
 	REJECTED: 'rejected'
 };
+
+export const wordSpacing = (status: string) => {
+	return status.replace(/([A-Z][a-z])/g,' $1').replace(/(\d)/g,' $1');
+};
