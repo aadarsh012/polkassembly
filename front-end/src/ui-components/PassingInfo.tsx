@@ -8,25 +8,28 @@ import { Icon } from 'semantic-ui-react';
 
 interface Props {
 	className?: string;
-	isPassing: boolean | null;
+	status?: string;
 }
 
-const PassingInfo = ({ className, isPassing }:Props ) => {
+const PassingInfo = ({ className, status }:Props ) => {
 
 	const NO_INFO_TEXT = '-';
-
-	let text = '';
 	let iconName : 'check circle outline' | 'times circle outline' | null = null;
-
-	if (isPassing === null){
-		text = NO_INFO_TEXT;
+	if (status === null){
+		status = NO_INFO_TEXT;
+	} else if (status === 'Executed') {
+		status = 'Passed';
+		iconName = 'check circle outline';
+	}else if (status === 'NotPassed') {
+		status = 'Failing';
+		iconName = 'times circle outline';
 	} else {
-		text = isPassing ? 'Passing' : 'Failing';
-		iconName = isPassing ? 'check circle outline' : 'times circle outline';
+		status = 'Passing';
+		iconName = 'check circle outline';
 	}
 	return (
-		<div className={`${className} ${text === NO_INFO_TEXT ? null : text.toLowerCase()}`}>
-			{iconName && <Icon name={iconName} />}{text}
+		<div className={`${className} ${status === NO_INFO_TEXT ? null : status.toLowerCase()}`}>
+			{iconName && <Icon name={iconName} />}{status}
 		</div>
 	);
 };
@@ -42,7 +45,7 @@ export default styled(PassingInfo)`
 	transition-duration: 1s;
 	box-shadow: box_shadow_card;
 
-	&.passing {
+	&.passing, &.passed {
 		background-color: green_primary;
 	}
 
