@@ -9,22 +9,26 @@ import { Icon } from 'semantic-ui-react';
 interface Props {
 	className?: string;
 	status?: string;
+	voteStatus?: string;
 }
 
-const PassingInfo = ({ className, status }:Props ) => {
+const PassingInfo = ({ className, status, voteStatus }:Props ) => {
 
 	const NO_INFO_TEXT = '-';
 	let iconName : 'check circle outline' | 'times circle outline' | null = null;
-	if (status === null){
+	if (!status && !voteStatus){
 		status = NO_INFO_TEXT;
-	} else if (status === 'Executed') {
-		status = 'Passed';
-		iconName = 'check circle outline';
-	}else if (status === 'NotPassed') {
+	} else if (status === 'Started' && voteStatus === 'notPassed') {
 		status = 'Failing';
 		iconName = 'times circle outline';
-	} else {
+	}else if (status === 'NotPassed') {
+		status = 'Failed';
+		iconName = 'times circle outline';
+	} else if (status === 'Started' && voteStatus === 'executed'){
 		status = 'Passing';
+		iconName = 'check circle outline';
+	} else {
+		status = 'Passed';
 		iconName = 'check circle outline';
 	}
 	return (

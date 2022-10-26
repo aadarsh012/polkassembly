@@ -56,6 +56,7 @@ export default styled(Loader)`
 	&.ui.inverted.dimmer {
 		border-radius: 3px;
 		padding: 4rem;
+		position: static;
 	}
 
 	.error-text {
