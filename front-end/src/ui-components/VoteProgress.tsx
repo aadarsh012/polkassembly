@@ -37,7 +37,6 @@ const VoteProgress = ({ ayeVotes, className, isPassing, nayVotes, threshold, thr
 		? (1-thresholdNumber/totalVotesNumberDivider)*100
 		: thresholdNumber / totalVotesNumberDivider*100;
 	const ayePercent = ayeVotesNumber/totalVotesNumber*100;
-	console.log(thresholdPercent);
 	return (
 		<div className={className}>
 			<div className='voteNumbers'>Aye: {bnToStringBalanceDelimitor(ayeVotes)}</div>

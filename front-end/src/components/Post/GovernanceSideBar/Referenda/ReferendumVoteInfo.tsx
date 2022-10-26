@@ -118,7 +118,7 @@ const ReferendumVoteInfo = ({ className, referendumId, threshold, setLastVote, s
 			cancel = true;
 		};
 	},[]);
-	console.log({ status, voteInfo });
+
 	return (
 		<>
 			{

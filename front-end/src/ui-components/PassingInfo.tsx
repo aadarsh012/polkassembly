@@ -24,7 +24,7 @@ const PassingInfo = ({ className, status, voteStatus }:Props ) => {
 	}else if (status === 'NotPassed') {
 		status = 'Failed';
 		iconName = 'times circle outline';
-	} else if (status === 'Started' && voteStatus === 'executed'){
+	} else if (status === 'Started' && voteStatus === 'executed') {
 		status = 'Passing';
 		iconName = 'check circle outline';
 	} else {
