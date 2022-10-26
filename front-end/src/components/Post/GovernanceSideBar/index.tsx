@@ -278,7 +278,7 @@ const GovernanceSideBar = ({ canEdit, className, isMotion, isProposal, isReferen
 								</div>
 							}
 							{
-								lastVote != undefined ? <div className='vote-div vote-card'>
+								lastVote != undefined || canVote ? <div className='vote-div vote-card'>
 									{lastVote == null ?
 										<div className='vote-reminder-text'>You haven&apos;t voted yet, vote now and do your bit for the community</div>
 										:
