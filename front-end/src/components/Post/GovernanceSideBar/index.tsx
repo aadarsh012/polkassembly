@@ -25,6 +25,7 @@ import VoteReferendum from './Referenda/VoteReferendum';
 import EndorseTip from './Tips/EndorseTip';
 import TipInfo from './Tips/TipInfo';
 import EditProposalStatus from './TreasuryProposals/EditProposalStatus';
+import TreasuryProposalsVoteInfo from './TreasuryProposals/TreasuryProposalsVoteInfo';
 
 interface Props {
 	canEdit?: boolean | '' | undefined
@@ -224,7 +225,6 @@ const GovernanceSideBar = ({ canEdit, className, isMotion, isProposal, isReferen
 			</div>
 		);
 	}
-
 	return (
 		<>
 			{<div className={className}>
@@ -257,11 +257,23 @@ const GovernanceSideBar = ({ canEdit, className, isMotion, isProposal, isReferen
 						/>
 					}
 					{isTreasuryProposal &&
+					<>
+						{(onchainId || onchainId === 0) &&
+							<div className={className}>
+								<Form standalone={false}>
+									<TreasuryProposalsVoteInfo
+										proposalId={onchainId as number}
+										status={status}
+									/>
+								</Form>
+							</div>
+						}
 						<EditProposalStatus
 							proposalId={onchainId  as number}
 							canEdit={canEdit}
 							startTime={startTime}
 						/>
+					</>
 					}
 					{isReferendum &&
 						<>
